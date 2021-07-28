@@ -15,10 +15,10 @@ finish-args:
   - '--device=dri'
 
 modules:
-  - name: TextSnatcher
+  - name: con.github.rajsolai.TextSnatcher
     buildsystem: meson
     sources:
       - type: archive
-        url: /home/solairaj/office/com.github.rajsolai.TextSnatcher/com.github.rajsolai.TextSnatcher.tar.gz
+        url: https://github.com/RajSolai/com.github.rajsolai.TextSnatcher/raw/master/com.github.rajsolai.TextSnatcher.tar.gz
         sha256: a781136ca8c42f045657fb96e18ba513654eb95e69dddb6240030e4ece7586c2
   - tesseract.yml
