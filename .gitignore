@@ -1,2 +1,3 @@
 /build
 .travis.yml
+/.flatpak-builder

@@ -1,0 +1,24 @@
+app-id: com.github.rajsolai.TextSnatcher
+
+runtime: org.gnome.Platform
+runtime-version: '40'
+base: io.elementary.BaseApp
+base-version: 'juno-20.08'
+sdk: org.gnome.Sdk
+command: com.github.rajsolai.TextSnatcher
+
+finish-args:
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+  - '--share=network'
+  - '--device=dri'
+
+modules:
+  - name: TextSnatcher
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: /home/solairaj/office/com.github.rajsolai.TextSnatcher/com.github.rajsolai.TextSnatcher.tar.gz
+        sha256: a781136ca8c42f045657fb96e18ba513654eb95e69dddb6240030e4ece7586c2
+  - tesseract.yml
