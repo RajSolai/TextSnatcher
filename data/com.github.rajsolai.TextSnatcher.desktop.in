@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=Name
-Comment=Comment
-GenericName=GenericName
+Name=TextSnatcher
+Comment=Do OCR in a drag
+GenericName=TextSnatcher
 Exec=com.github.rajsolai.TextSnatcher %U
 Icon=com.github.rajsolai.TextSnatcher
 Terminal=false
-Categories=Utility;GTK;Development;
-Keywords=Develop
+Categories=Utility;
+Keywords=Develop;
