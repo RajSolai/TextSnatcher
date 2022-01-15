@@ -1,0 +1,21 @@
+app-id: com.github.rajsolai.TextSnatcher
+
+runtime: io.elementary.Platform
+runtime-version: '6'
+sdk: io.elementary.Sdk
+command: com.github.rajsolai.TextSnatcher
+
+finish-args:
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+  - '--share=network'
+  - '--device=dri'
+
+modules:
+  - name: con.github.rajsolai.TextSnatcher
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: ..
+  - tesseract.yml 
