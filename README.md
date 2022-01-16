@@ -1,12 +1,14 @@
 # TextSnatcher
 
 Snatch Text from Images at click. <br>
-Drag over any text and Paste it ! <br>
-This Minimal application uses the Tesseract OCR 5.x for the character recognition. Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) and Star ⭐️ [Tesseract-Project](https://github.com/tesseract-ocr/tesseract).
+Drag over any Image and Paste ! <br>
+This Minimal application uses the Tesseract OCR 4.x for the character
+recognition. <br>
+Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) and Star ⭐️ [Tesseract-Project](https://github.com/tesseract-ocr/tesseract).
 
-# Install it from source
+## Support Me
 
-You can of course download and install this app from source.
+<a href="https://www.buymeacoffee.com/rajsolai" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="width: 200px;" ></a>
 
 ## Dependencies
 
@@ -16,7 +18,7 @@ Ensure you have these dependencies installed
 -   gtk+-3.0
 -   switchboard-2.0
 -   tesseract-ocr
--   scort
+-   tess-best trained data
 
 ## Install, build and run
 
