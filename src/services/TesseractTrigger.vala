@@ -1,6 +1,5 @@
 class TesseractTrigger : Object {
-    //  string imagePath = GLib.Environment.get_home_dir () + "/Pictures/temp.png" ;
-    string outPath = GLib.Environment.get_home_dir () + "/Documents/textsnatcher" ;
+    string outPath = GLib.Environment.get_home_dir() + "/.textsnatcher";
     Gtk.Clipboard clipboard ;
     string res ;
     string err ;
@@ -14,13 +13,8 @@ class TesseractTrigger : Object {
 
     public async void takeScreenShot(Gtk.Label label) {
         label.label = "Drag over the Text" ;
-        //  Idle.add (takeScreenShot.callback) ;
         try {
             string path = yield screenshot.captureScreen();
-            //  Process.spawn_command_line_sync ("gnome -s " + imagePath, out res, out err, out stat) ;
-            print(path);
-            // print(err);
-            // print(stat.to_string());
             yield readImage (label,path) ;
         } catch ( Error e ){
             critical (e.message) ;
@@ -33,9 +27,6 @@ class TesseractTrigger : Object {
         yield ;
         try {
             Process.spawn_command_line_sync ("tesseract " + filePath + " " + outPath + " -l eng ", out res, out err, out stat) ;
-            print ("RESULT : " + res) ;
-            print ("ERROR : " + err) ;
-            print ("Tesseract status" + stat.to_string ()) ;
             if (stat ==0){
             copyToClipBoard(label);
             }else{
@@ -51,9 +42,12 @@ class TesseractTrigger : Object {
             clipboard = Gtk.Clipboard.get_default (display) ;
             string textOutput ;
             FileUtils.get_contents (outPath + ".txt", out textOutput) ;
-            clipboard.set_text (textOutput, textOutput.length) ;
-            // print(textOutput.length);
-            label.label = "Checkout Clipboard :)" ;
+            if (textOutput.length > 0) {
+                clipboard.set_text (textOutput, textOutput.length) ;
+                label.label = "Checkout Clipboard :)" ;
+            }else{
+                label.label = "Error Reading Image" ;
+            }
         } catch ( Error e ){
             print (e.message) ;
         }
