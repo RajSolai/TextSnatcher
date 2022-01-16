@@ -19,21 +19,13 @@ sources:
   #  sha256: f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe
   #  dest: traineddata
   # Best (most accurate) trained LSTM models.
-  #- type: archive
-  #  url: https://github.com/tesseract-ocr/tessdata_best/archive/4.0.0.tar.gz
-  #  sha256: 5d826c8a926d06b4e19eae391949f24f3011973cc7f679c57a059054fa2d8c60
-  #  dest: traineddata
-  - type: git
-    url: https://github.com/tesseract-ocr/tessdata_best.git
-    #tag: 4.0.0
-    commit: 9e8aeef07ce8c4f6e6519577cee76363246bc6de
+  - type: archive
+    url: https://github.com/tesseract-ocr/tessdata_best/archive/4.0.0.tar.gz
+    sha256: 5d826c8a926d06b4e19eae391949f24f3011973cc7f679c57a059054fa2d8c60
     dest: traineddata
-  # Tweak location of tessdata folder
-  # https://src.fedoraproject.org/rpms/tesseract/blob/7ae0e18c8f30353dea96807a4a445d1b3aba8d74/f/tesseract_datadir.patch
-  # - type: patch
-  #   path: tesseract-4.1.1-datadir.patch
+  
 post-install:
-  - install -p -D -m 0644 "traineddata"/*.traineddata -t "${FLATPAK_DEST}/share/tesseract/tessdata/";
-  - install -p -D -m 0644 "traineddata/script"/*.traineddata -t "${FLATPAK_DEST}/share/tesseract/tessdata/script/";
+  - install -p -D -m 0644 "traineddata"/*.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
+  - install -p -D -m 0644 "traineddata/script"/*.traineddata -t "${FLATPAK_DEST}/share/tessdata/script/";
 modules:
   - leptonica.yml

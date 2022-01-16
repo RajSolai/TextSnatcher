@@ -11,9 +11,12 @@ finish-args:
   - '--socket=wayland'
   - '--share=network'
   - '--device=dri'
+  - '--filesystem=/home'
+  - '--talk-name=org.gnome.Shell.Screenshot'
+
 
 modules:
-  - name: con.github.rajsolai.TextSnatcher
+  - name: com.github.rajsolai.TextSnatcher
     buildsystem: meson
     sources:
       - type: dir
