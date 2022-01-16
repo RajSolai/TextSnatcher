@@ -1,10 +1,16 @@
 public class LanguageButton : Gtk.MenuButton {
     public LanguageButton () {
         Object (
-            image: new Gtk.Image.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+            image: new Gtk.Image.from_icon_name ("preferences-desktop-locale", Gtk.IconSize.SMALL_TOOLBAR)
             ) ;
+        var menuGrid = new Gtk.Grid () ;
+        var menu_list_one = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
+        var menu_list_two = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
+        menuGrid.orientation = Gtk.Orientation.HORIZONTAL ;
         var lang = new LanguageService () ;
         var tam = new Gtk.ModelButton () ;
+        var hin = new Gtk.ModelButton () ;
+        var spa = new Gtk.ModelButton () ;
         var eng = new Gtk.ModelButton () ;
         var chi_sim = new Gtk.ModelButton () ;
         var jpn = new Gtk.ModelButton () ;
@@ -15,6 +21,8 @@ public class LanguageButton : Gtk.MenuButton {
 
         tam.text = "Tamil" ;
         eng.text = "English" ;
+        hin.text = "Hindi" ;
+        spa.text = "Spanish" ;
         chi_sim.text = "Chinese (Simplified)" ;
         jpn.text = "Japanese" ;
         rus.text = "Russian" ;
@@ -30,21 +38,25 @@ public class LanguageButton : Gtk.MenuButton {
         fra.clicked.connect (() => { lang.savePrefLanguage ("fra") ; }) ;
         rus.clicked.connect (() => { lang.savePrefLanguage ("rus") ; }) ;
         ara.clicked.connect (() => { lang.savePrefLanguage ("ara") ; }) ;
+        spa.clicked.connect (() => { lang.savePrefLanguage ("spa") ; }) ;
+        hin.clicked.connect (() => { lang.savePrefLanguage ("hin") ; }) ;
 
-        var menu_list = new Gtk.Grid () ;
-        menu_list.orientation = Gtk.Orientation.VERTICAL ;
-        menu_list.add (eng) ;
-        menu_list.add (chi_sim) ;
-        menu_list.add (jpn) ;
-        menu_list.add (tam) ;
-        menu_list.add (fra) ;
-        menu_list.add (ara) ;
-        menu_list.add (tha) ;
-        menu_list.add (rus) ;
+        menu_list_one.add (eng) ;
+        menu_list_one.add (chi_sim) ;
+        menu_list_one.add (jpn) ;
+        menu_list_one.add (tam) ;
+        menu_list_one.add (spa) ;
+        menu_list_two.add (fra) ;
+        menu_list_two.add (ara) ;
+        menu_list_two.add (tha) ;
+        menu_list_two.add (rus) ;
+        menu_list_two.add (hin) ;
 
-        menu_list.show_all () ;
+        menuGrid.add (menu_list_one) ;
+        menuGrid.add (menu_list_two) ;
+        menuGrid.show_all () ;
         var popover = new Gtk.Popover (null) ;
-        popover.add (menu_list) ;
+        popover.add (menuGrid) ;
         this.popover = popover ;
     }
 
