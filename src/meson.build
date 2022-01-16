@@ -4,7 +4,9 @@ sources = files (
     'MainWindow.vala',
     'components/VerticalBox.vala',
     'components/HeaderBar.vala',
+    'components/LanguageButton.vala',
     'screens/MainScreen.vala',
+    'services/LanguageService.vala',
     'services/TesseractTrigger.vala',
     'services/ScreenShot.vala',
     'services/ScreenShotProxy.vala'
