@@ -16,7 +16,7 @@
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA
  *
- * Authored by: solairaj <msraj085@gmail.com>
+ * Authored by: Solai Raj <msraj085@gmail.com>
  */
 
 public class Application : Gtk.Application {
