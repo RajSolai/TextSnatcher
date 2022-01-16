@@ -5,5 +5,7 @@ sources = files (
     'components/VerticalBox.vala',
     'components/HeaderBar.vala',
     'screens/MainScreen.vala',
-    'services/TesseractTrigger.vala'
+    'services/TesseractTrigger.vala',
+    'services/ScreenShot.vala',
+    'services/ScreenShotProxy.vala'
 )
