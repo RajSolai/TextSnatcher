@@ -17,6 +17,7 @@ add_project_arguments (
 
 # Listing dependencies
 dependencies = [
+    dependency('granite'),
     dependency('gobject-2.0'),
     dependency('gdk-pixbuf-2.0'),
     dependency ('glib-2.0'),
