@@ -1,28 +1,38 @@
 name: flatpak-build
 
-on: [push,pull_request]
+# This workflow will run for any pull request or pushed commit
+on: [push, pull_request]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "flatpak"
   build:
-
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # This job runs in a special container designed for building Flatpaks for AppCenter
     container:
       image: ghcr.io/elementary/flatpak-platform/runtime:6
       options: --privileged
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so the job can access it
+    - uses: actions/checkout@v2
+
+      # Builds your flatpak manifest using the Flatpak Builder action
     - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
       with:
-
+        # This is the name of the Bundle file we're building and can be anything you like
         bundle: com.github.rajsolai.TextSnatcher.flatpak
-
+        # This uses your app's RDNN ID
         manifest-path: com.github.rajsolai.TextSnatcher.yml
 
+        # You can automatically run any of the tests you've created as part of this workflow
         run-tests: true
 
-        repository-name: appcenter
-        repository-url: https://flatpak.elementary.io/repo.flatpakrepo
-        cache-key: "flatpak-builder-${{ github.sha }}"
+        # These lines specify the location of the elementary Runtime and Sdk
+        # repository-name: appcenter
+        # repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+        # cache-key: "flatpak-builder-${{ github.sha }}"
         
