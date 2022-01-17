@@ -1,3 +1,7 @@
+name: vala-lint
+
+on: [push]
+
 jobs:
   lint:
 
