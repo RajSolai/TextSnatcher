@@ -1,0 +1,28 @@
+name: flatpak-build
+
+on: [push,pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/elementary/flatpak-platform/runtime:6
+      options: --privileged
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
+      with:
+
+        bundle: com.github.rajsolai.TextSnatcher.flatpak
+
+        manifest-path: com.github.rajsolai.TextSnatcher.yml
+
+        run-tests: true
+
+        repository-name: appcenter
+        repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+        cache-key: "flatpak-builder-${{ github.sha }}"
+        

@@ -1,1 +1,1 @@
-flatpak-builder build  manifests/com.github.rajsolai.TextSnatcher.yml --user --install --force-clean 
+flatpak-builder build com.github.rajsolai.TextSnatcher.yml --user --force-clean --install

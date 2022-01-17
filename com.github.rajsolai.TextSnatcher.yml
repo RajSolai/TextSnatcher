@@ -20,5 +20,5 @@ modules:
     buildsystem: meson
     sources:
       - type: dir
-        path: ..
-  - tesseract.yml 
+        path: .
+  - manifests/tesseract.yml 
