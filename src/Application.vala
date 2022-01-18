@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 - Today solairaj ()
+ * Copyright (c) 2021 - Today Solai Raj (github.com/RajSolai)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -57,4 +57,3 @@ public class Application : Gtk.Application {
     }
 
 }
-

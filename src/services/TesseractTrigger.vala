@@ -30,7 +30,6 @@ class TesseractTrigger : Object {
         yield ;
         try {
             string tessCommand = "tesseract " + filePath + " " + outPath + @" -l $lang" ;
-            // print("\n tesscommand is "+tessCommand);
             Process.spawn_command_line_sync (tessCommand, out res, out err, out stat) ;
             if( stat == 0 ){
                 copyToClipBoard (label) ;
@@ -54,7 +53,6 @@ class TesseractTrigger : Object {
             } else {
                 label.label = "Error Reading Image" ;
             }
-            print ("\n the output is " + textOutput) ;
         } catch ( Error e ) {
             print (e.message) ;
         }
