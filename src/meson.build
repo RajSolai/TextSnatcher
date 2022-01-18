@@ -5,6 +5,8 @@ sources = files (
     'components/VerticalBox.vala',
     'components/HeaderBar.vala',
     'components/LanguageButton.vala',
+    'components/AboutButton.vala',
+    'components/AboutDialog.vala',
     'screens/MainScreen.vala',
     'services/LanguageService.vala',
     'services/TesseractTrigger.vala',

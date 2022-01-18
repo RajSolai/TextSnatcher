@@ -1,6 +1,6 @@
 # TextSnatcher
 
-Snatch Text from Images at click. <br>
+Snatch Text with a Drag. <br>
 Drag over any Image and Paste ! <br>
 This Minimal application uses the Tesseract OCR 4.x for the character
 recognition. <br>
