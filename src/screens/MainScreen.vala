@@ -12,7 +12,9 @@ public class MainScreen : Gtk.EventBox {
         var useImageButton = new Gtk.Button.with_label ("Snatch Now !") ;
         useImageButton.clicked.connect (() => {
             titleLabel.label = "Drag anywhere !" ;
-            trigger.startProcess (titleLabel) ;
+            trigger.startProcess.begin (titleLabel, (obj, res) => {
+                print ("Process Done") ;
+            }) ;
         }) ;
         main_box.orientation = Gtk.Orientation.VERTICAL ;
         vbox.pack_start (titleLabel, true, true, 5) ;

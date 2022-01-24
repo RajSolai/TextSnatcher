@@ -58,8 +58,10 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void startProcess(Gtk.Label labelWidget) {
+    public async bool startProcess(Gtk.Label labelWidget) {
         yield takeScreenShot(labelWidget) ;
+
+        return true ;
 
     }
 
