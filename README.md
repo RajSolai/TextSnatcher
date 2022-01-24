@@ -1,4 +1,7 @@
-# TextSnatcher
+
+<img src="./data/textsnatcher-banner.svg" width="100%"></img>
+
+[![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala)
 
 Snatch Text with a Drag. <br>
 Drag over any Image and Paste ! <br>
@@ -14,14 +17,9 @@ Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) a
 
 ## Screenshots
 
-<div align="center" style="display:flex;">
-<img src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png" alt="TextSnatcher OCR App for Linux"/>
+![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-default.png)
 
-<img src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png" alt="TextSnatcher OCR App for Linux"/>
-
-
-</div>
-
+![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png)
 
 ## Social Media Posts
 
