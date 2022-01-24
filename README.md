@@ -14,7 +14,14 @@ Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) a
 
 ## Screenshots
 
-![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png)
+<div align="center" style="display:flex;">
+<img src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png" alt="TextSnatcher OCR App for Linux"/>
+
+<img src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png" alt="TextSnatcher OCR App for Linux"/>
+
+
+</div>
+
 
 ## Social Media Posts
 
