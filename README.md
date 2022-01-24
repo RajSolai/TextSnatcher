@@ -10,15 +10,15 @@ Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) a
 
 ## Screencasts
 
-https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/video.webm
+![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/vid.gif)
 
 ## Screenshots
 
-![screenshot](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png)
+![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png)
 
 ## Social Media Posts
 
-[LinkedIn Post on Why I created this Application](https://www.linkedin.com/posts/solai085_linux-commentbelow-apple-activity-6826408004519374848-wxsw)
+[LinkedIn Post on Why I created TextSnatcher](https://www.linkedin.com/posts/solai085_linux-commentbelow-apple-activity-6826408004519374848-wxsw)
 
 ## Dependencies
 
