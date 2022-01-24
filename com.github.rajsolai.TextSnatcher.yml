@@ -1,9 +1,9 @@
-app-id: com.github.rajsolai.TextSnatcher
+app-id: com.github.rajsolai.textsnatcher
 
 runtime: io.elementary.Platform
 runtime-version: '6'
 sdk: io.elementary.Sdk
-command: com.github.rajsolai.TextSnatcher
+command: com.github.rajsolai.textsnatcher
 
 finish-args:
   - '--share=ipc'
@@ -16,7 +16,7 @@ finish-args:
 
 
 modules:
-  - name: com.github.rajsolai.TextSnatcher
+  - name: com.github.rajsolai.textsnatcher
     buildsystem: meson
     sources:
       - type: dir

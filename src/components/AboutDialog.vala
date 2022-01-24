@@ -8,7 +8,7 @@ class TsAboutDialog : Gtk.AboutDialog {
         authors = { "Solai Raj (RajSolai)", "msraj085@gmail.com" } ;
         documenters = null ;
         translator_credits = null ;
-        logo_icon_name = "com.github.rajsolai.TextSnatcher" ;
+        logo_icon_name = "com.github.rajsolai.textsnatcher" ;
 
         program_name = "TextSnatcher" ;
         comments = "Snatch Text with a Drag" ;
@@ -18,7 +18,7 @@ class TsAboutDialog : Gtk.AboutDialog {
         license = null ;
         wrap_license = true ;
 
-        website = "https://github.com/RajSolai/com.github.rajsolai.TextSnatcher" ;
+        website = "https://github.com/RajSolai/com.github.rajsolai.textsnatcher" ;
         website_label = "Star TextSnatcher on Github !" ;
 
         response.connect ((response_id) => {

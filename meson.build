@@ -1,6 +1,6 @@
 # Project name, programming language and version
 project (
-    'com.github.rajsolai.TextSnatcher',
+    'com.github.rajsolai.textsnatcher',
     'vala', 'c',
     version: '1.0.0'
 )
@@ -20,8 +20,8 @@ dependencies = [
     dependency('granite'),
     dependency('gobject-2.0'),
     dependency('gdk-pixbuf-2.0'),
-    dependency ('glib-2.0'),
-    dependency ('gtk+-3.0')
+    dependency('glib-2.0'),
+    dependency('gtk+-3.0')
 ]
 
 subdir ('src')

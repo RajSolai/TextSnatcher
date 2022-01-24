@@ -24,9 +24,9 @@ jobs:
     - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v3
       with:
         # This is the name of the Bundle file we're building and can be anything you like
-        bundle: com.github.rajsolai.TextSnatcher.flatpak
+        bundle: com.github.rajsolai.textsnatcher.flatpak
         # This uses your app's RDNN ID
-        manifest-path: com.github.rajsolai.TextSnatcher.yml
+        manifest-path: com.github.rajsolai.textsnatcher.yml
 
         # You can automatically run any of the tests you've created as part of this workflow
         run-tests: true

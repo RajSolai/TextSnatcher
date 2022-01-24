@@ -16,7 +16,8 @@ Ensure you have these dependencies installed
 
 -   granite
 -   gtk+-3.0
--   switchboard-2.0
+-   gobject-2.0
+-   gdk-pixbuf-2.0
 -   tesseract-ocr
 -   tess-best trained data
 
@@ -33,5 +34,5 @@ cd TextSnatcher
 meson build --prefix=/usr
 # cd to build, build and test
 cd build
-sudo ninja install && TextSnatcher
+sudo ninja install && com.github.rajsolai.textsnatcher
 ```

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2020 solairaj <msraj085@gmail.com> -->
+<component type="desktop">
+  <id>com.github.rajsolai.textsnatcher</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>TextSnatcher</name>
+  <summary>Snatch Text with just a Drag</summary>
+  <description>
+    <p>Copy Text from Images with ease, Perform OCR operations in seconds.</p>
+  </description>
+  <provides>
+    <binary>com.github.rajsolai.textsnatcher</binary>
+  </provides>
+  <developer_name>Solai Raj (RajSolai)</developer_name>
+  <url type="homepage">https://github.com/RajSolai/com.github.rajsolai.textsnatcher</url>
+  <url type="bugtracker">https://github.com/RajSolai/com.github.rajsolai.textsnatcher/issues</url>
+  <url type="help">https://github.com/RajSolai/com.github.rajsolai.textsnatcher/issues</url>
+  <screenshots>
+    <screenshot type="default">
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="1.0.0" date="2022-01-01"/>
+  </releases>
+</component>

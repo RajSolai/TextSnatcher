@@ -24,7 +24,7 @@ public class Application : Gtk.Application {
 
     public Application () {
         Object (
-            application_id: "com.github.rajsolai.TextSnatcher",
+            application_id: "com.github.rajsolai.textsnatcher",
             flags : ApplicationFlags.FLAGS_NONE
             ) ;
     }

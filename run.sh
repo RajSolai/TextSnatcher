@@ -1,1 +1,1 @@
-cd build && ninja install && com.github.rajsolai.TextSnatcher
+cd build && ninja install && com.github.rajsolai.textsnatcher
