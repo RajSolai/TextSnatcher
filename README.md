@@ -10,13 +10,18 @@ Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) a
 
 ## Screencasts
 
+<video width="320" height="240" controls>
+  <source src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/video.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
 ## Screenshots
 
 ![screenshot](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png)
 
 ## Social Media Posts
 
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6826407931978899456?compact=1" height="284" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+[LinkedIn Post on Why I created this Application](https://www.linkedin.com/posts/solai085_linux-commentbelow-apple-activity-6826408004519374848-wxsw)
 
 ## Dependencies
 
