@@ -1,15 +1,22 @@
-
-<img src="./data/textsnatcher-banner.svg" width="100%"></img>
-
 [![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala)
 
-Snatch Text with a Drag. <br>
-Drag over any Image and Paste ! <br>
-This Minimal application uses the Tesseract OCR 4.x for the character
-recognition. <br>
-Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) and Star ⭐️ [Tesseract-Project](https://github.com/tesseract-ocr/tesseract).
+<div align="center">
+<img src="./data/icons/com.github.rajsolai.textsnatcher.svg" height="110px" />
+<h1>TextSnatcher</h1>
+<p>Copy Text from Images with ease, Perform OCR operations in seconds.</p>
+<img alt="TextSnatcher OCR App for Linux" src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-default.png"/>
+</div>
+<!-- 
+## Download -->
 
-<a href="https://www.buymeacoffee.com/rajsolai" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="width: 200px;" ></a>
+## Features
+- Multiple Language Support.
+- Copy Text from images with a Drag.
+- Drag over any Image and Paste.
+- Fast and Easy to Use.
+- This application uses the Tesseract OCR 4.x for the character
+recognition.
+- Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) and Star ⭐️ [Tesseract-Project](https://github.com/tesseract-ocr/tesseract).
 
 ## Screencasts
 
@@ -20,6 +27,10 @@ Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) a
 ![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-default.png)
 
 ![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-dark.png)
+
+## Support Me
+
+<a href="https://www.buymeacoffee.com/rajsolai" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="width: 200px;" ></a>
 
 ## Social Media Posts
 
@@ -68,3 +79,10 @@ cd TextSnatcher
 # run flatpak build script
 sh fbuild.sh
 ```
+## Inspirations
+
+- ReadMe: https://github.com/alainm23/planner
+- Application Structure: https://github.com/alcadica/develop
+- TextSniper (MacOS Application)
+
+Made with ❤️ from India
