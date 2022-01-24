@@ -25,9 +25,9 @@
      inkscape:document-units="px"
      showgrid="false"
      height="500px"
-     inkscape:zoom="0.33529119"
-     inkscape:cx="964.83299"
-     inkscape:cy="368.33655"
+     inkscape:zoom="0.50097698"
+     inkscape:cx="931.18052"
+     inkscape:cy="282.44811"
      inkscape:window-width="1366"
      inkscape:window-height="707"
      inkscape:window-x="0"
@@ -36,18 +36,6 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs2">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient1115">
-      <stop
-         style="stop-color:#dc8add;stop-opacity:1"
-         offset="0"
-         id="stop1111" />
-      <stop
-         style="stop-color:#813d9c;stop-opacity:1"
-         offset="1"
-         id="stop1113" />
-    </linearGradient>
     <filter
        style="color-interpolation-filters:sRGB;"
        inkscape:label="Drop Shadow"
@@ -384,22 +372,13 @@
          result="composite2"
          id="feComposite3206" />
     </filter>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1115"
-       id="linearGradient1117"
-       x1="741.70148"
-       y1="-102.67874"
-       x2="780.98676"
-       y2="790.87988"
-       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="opacity:0.552041;fill:url(#linearGradient1117);fill-opacity:1;stroke-width:3;stroke-dasharray:18, 6;filter:url(#filter2789)"
+       style="opacity:0.552041;fill:#ffffff;fill-opacity:1;stroke-width:3;stroke-dasharray:18, 6;filter:url(#filter2789)"
        id="rect866"
        width="1868.2501"
        height="453.00827"
