@@ -18,7 +18,7 @@ class TsAboutDialog : Gtk.AboutDialog {
         license = null ;
         wrap_license = true ;
 
-        website = "https://github.com/RajSolai/com.github.rajsolai.textsnatcher" ;
+        website = "https://github.com/RajSolai/TextSnatcher" ;
         website_label = "Star TextSnatcher on Github !" ;
 
         response.connect ((response_id) => {

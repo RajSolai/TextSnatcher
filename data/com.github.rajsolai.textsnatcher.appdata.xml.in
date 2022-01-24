@@ -13,15 +13,27 @@
     <binary>com.github.rajsolai.textsnatcher</binary>
   </provides>
   <developer_name>Solai Raj (RajSolai)</developer_name>
-  <url type="homepage">https://github.com/RajSolai/com.github.rajsolai.textsnatcher</url>
-  <url type="bugtracker">https://github.com/RajSolai/com.github.rajsolai.textsnatcher/issues</url>
-  <url type="help">https://github.com/RajSolai/com.github.rajsolai.textsnatcher/issues</url>
+  <url type="homepage">https://github.com/RajSolai/TextSnatcher</url>
+  <url type="bugtracker">https://github.com/RajSolai/TextSnatcher/issues</url>
+  <url type="help">https://github.com/RajSolai/TextSnatcher/issues</url>
   <screenshots>
     <screenshot type="default">
+      <image>https://raw.githubusercontent.com/RajSolai/Response/master/data/screenshots/app_normal_mobile.png</image>
+      <image>https://raw.githubusercontent.com/RajSolai/Response/master/data/screenshots/app_normal_desktop.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
-    <release version="1.0.0" date="2022-01-01"/>
+    <release version="1.0.0" date="2022-02-03">
+      <description>
+        <p>v1.0.0</p>
+        <ul>
+          <li>- New Window Method</li>
+          <li>- Rounded Windows</li>
+          <li>- Dropdown to select Device</li>
+          <li>- Bug Fix and Optimizations</li>
+        </ul>
+      </description>
+    </release>
   </releases>
 </component>
