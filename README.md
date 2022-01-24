@@ -10,10 +10,7 @@ Read more about [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html) a
 
 ## Screencasts
 
-<video width="320" height="240" controls>
-  <source src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/video.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/video.webm
 
 ## Screenshots
 
