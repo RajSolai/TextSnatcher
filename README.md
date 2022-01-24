@@ -1,4 +1,4 @@
-[![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala)
+[![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala) 
 
 <div align="center">
 <img src="./data/icons/com.github.rajsolai.textsnatcher.svg" height="110px" />
@@ -31,6 +31,9 @@ recognition.
 ## Support Me
 
 <a href="https://www.buymeacoffee.com/rajsolai" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="width: 200px;" ></a>
+
+![Bitcoin Donations](https://img.shields.io/badge/BTC-bc1qeurehq632h3lweazzqxxxzzwqmxvuztj7r80ca-f2a900)
+
 
 ## Social Media Posts
 
