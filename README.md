@@ -1,4 +1,6 @@
-[![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala) 
+[![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala)
+![example workflow](https://github.com/RajSolai/TextSnatcher/actions/workflows/flatpak-build.yml/badge.svg)
+ 
 
 <div align="center">
 <img src="./data/icons/com.github.rajsolai.textsnatcher.svg" height="110px" />
@@ -88,4 +90,4 @@ sh fbuild.sh
 - Application Structure: https://github.com/alcadica/develop
 - TextSniper (MacOS Application)
 
-Made with ❤️ from India
+Made with ❤️ for Linux

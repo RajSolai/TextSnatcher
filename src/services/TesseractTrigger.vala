@@ -1,5 +1,5 @@
 class TesseractTrigger : Object {
-    string outPath = GLib.Environment.get_home_dir () + "/.textsnatcher" ;
+    string out_path = GLib.Environment.get_home_dir () + "/.textsnatcher" ;
     Gtk.Clipboard clipboard ;
     string res ;
     string err ;
@@ -11,10 +11,10 @@ class TesseractTrigger : Object {
         screenshot = new ScreenShot () ;
     }
 
-    public async void takeScreenShot(Gtk.Label label) {
+    public async void takeScreenShot (Gtk.Label label) {
         label.label = "Drag over the Text" ;
         try {
-            string path = yield screenshot.captureScreen() ;
+            string path = yield screenshot.captureScreen () ;
             yield readImage(label, path) ;
 
         } catch ( Error e ) {
@@ -22,16 +22,16 @@ class TesseractTrigger : Object {
         }
     }
 
-    async void readImage(Gtk.Label label, string filePath) {
-        var langService = new LanguageService () ;
-        string lang = langService.getPrefLanguage () ;
+    async void readImage (Gtk.Label label, string file_path) {
+        var lang_service = new LanguageService () ;
+        string lang = lang_service.getPrefLanguage () ;
         label.label = "Reading Image" ;
         Idle.add (readImage.callback) ;
         yield ;
         try {
-            string tessCommand = "tesseract " + filePath + " " + outPath + @" -l $lang" ;
-            Process.spawn_command_line_sync (tessCommand, out res, out err, out stat) ;
-            if( stat == 0 ){
+            string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
+            Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
+            if ( stat == 0 ) {
                 copyToClipBoard (label) ;
             } else {
                 print ("Error is " + err + " status is " + stat.to_string ()) ;
@@ -42,13 +42,13 @@ class TesseractTrigger : Object {
         }
     }
 
-    void copyToClipBoard(Gtk.Label label) {
+    void copyToClipBoard (Gtk.Label label) {
         try {
             clipboard = Gtk.Clipboard.get_default (display) ;
-            string textOutput ;
-            FileUtils.get_contents (outPath + ".txt", out textOutput) ;
-            if( textOutput.length > 0 ){
-                clipboard.set_text (textOutput, textOutput.length) ;
+            string text_output ;
+            FileUtils.get_contents (out_path + ".txt", out text_output) ;
+            if ( text_output.length > 0 ) {
+                clipboard.set_text (text_output, text_output.length) ;
                 label.label = "Checkout Clipboard :)" ;
             } else {
                 label.label = "Error Reading Image" ;
@@ -58,8 +58,8 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async bool startProcess(Gtk.Label labelWidget) {
-        yield takeScreenShot(labelWidget) ;
+    public async bool startProcess (Gtk.Label label_widget) {
+        yield takeScreenShot (label_widget) ;
 
         return true ;
 

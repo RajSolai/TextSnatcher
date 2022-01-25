@@ -29,14 +29,18 @@ public class Application : Gtk.Application {
             ) ;
     }
 
-    protected override void activate() {
+    protected override void activate () {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default () ;
         default_theme.add_resource_path ("/com/github/rajsolai/TextSnatcher") ;
 
         // stylesheet
         var provider = new Gtk.CssProvider () ;
         provider.load_from_resource ("/com/github/rajsolai/TextSnatcher/stylesheet.css") ;
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION) ;
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        ) ;
 
         var granite_settings = Granite.Settings.get_default () ;
         var gtk_settings = Gtk.Settings.get_default () ;

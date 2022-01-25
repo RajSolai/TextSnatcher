@@ -3,7 +3,7 @@ public class ScreenShot : Object {
 
     construct {
         try {
-            proxy = Bus.get_proxy_sync<ScreenshotProxy>(BusType.SESSION,
+            proxy = Bus.get_proxy_sync<ScreenshotProxy> (BusType.SESSION,
                                                         "org.gnome.Shell.Screenshot",
                                                         "/org/gnome/Shell/Screenshot") ;
         } catch ( Error e ) {
@@ -11,7 +11,7 @@ public class ScreenShot : Object {
         }
     }
 
-    public async string captureScreen() throws Error {
+    public async string captureScreen () throws Error {
         Gdk.Rectangle ? rect = {} ;
         bool success = false ;
         string filename_used = "" ;

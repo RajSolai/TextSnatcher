@@ -1,12 +1,12 @@
 class LanguageService {
-    static string preferredLanguage = "eng" ;
+    static string preferred_language = "eng" ;
 
-    public void savePrefLanguage(string language) {
-        preferredLanguage = language ;
+    public void savePrefLanguage (string language) {
+        preferred_language = language ;
     }
 
-    public string getPrefLanguage() {
-        return preferredLanguage ;
+    public string getPrefLanguage () {
+        return preferred_language ;
     }
 
 }

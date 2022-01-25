@@ -3,10 +3,10 @@ public class LanguageButton : Gtk.MenuButton {
         Object (
             image: new Gtk.Image.from_icon_name ("preferences-desktop-locale", Gtk.IconSize.SMALL_TOOLBAR)
             ) ;
-        var menuGrid = new Gtk.Grid () ;
+        var menu_grid = new Gtk.Grid () ;
         var menu_list_one = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
         var menu_list_two = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
-        menuGrid.orientation = Gtk.Orientation.HORIZONTAL ;
+        menu_grid.orientation = Gtk.Orientation.HORIZONTAL ;
         var lang = new LanguageService () ;
         var tam = new Gtk.ModelButton () ;
         var hin = new Gtk.ModelButton () ;
@@ -52,11 +52,11 @@ public class LanguageButton : Gtk.MenuButton {
         menu_list_two.add (rus) ;
         menu_list_two.add (hin) ;
 
-        menuGrid.add (menu_list_one) ;
-        menuGrid.add (menu_list_two) ;
-        menuGrid.show_all () ;
+        menu_grid.add (menu_list_one) ;
+        menu_grid.add (menu_list_two) ;
+        menu_grid.show_all () ;
         var popover = new Gtk.Popover (null) ;
-        popover.add (menuGrid) ;
+        popover.add (menu_grid) ;
         this.popover = popover ;
     }
 

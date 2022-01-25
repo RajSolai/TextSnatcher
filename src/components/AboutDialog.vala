@@ -1,7 +1,6 @@
 class TsAboutDialog : Gtk.AboutDialog {
     construct {
         set_destroy_with_parent (true) ;
-        // set_transient_for (window);
         set_modal (true) ;
 
         artists = null ;
@@ -22,12 +21,11 @@ class TsAboutDialog : Gtk.AboutDialog {
         website_label = "Star TextSnatcher on Github !" ;
 
         response.connect ((response_id) => {
-            if( response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT ){
+            if ( response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT ) {
                 hide_on_delete () ;
             }
         }) ;
 
     }
-
 
 }
