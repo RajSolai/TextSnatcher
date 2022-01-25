@@ -1,3 +1,4 @@
 /build
 .travis.yml
 /.flatpak-builder
+gnomeapp.yml
