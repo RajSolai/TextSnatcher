@@ -9,6 +9,7 @@ public class MainScreen : Gtk.EventBox {
         main_box.margin = 10 ;
         title_label.get_style_context ().add_class ("h2") ;
         var start_button = new Gtk.Button.with_label ("Snatch Now !") ;
+        start_button.get_style_context ().add_class ("start-button") ;
         start_button.clicked.connect (() => {
             title_label.label = "Drag anywhere !" ;
             trigger.start_tess_process.begin (title_label, (obj, res) => {

@@ -1,4 +1,4 @@
-public class CustomHeaderBar : Gtk.HeaderBar {
+public class CustomHeaderBar : Hdy.HeaderBar {
 
     public CustomHeaderBar () {
         var language_button = new LanguageButton () ;
@@ -8,7 +8,7 @@ public class CustomHeaderBar : Gtk.HeaderBar {
         get_style_context ().add_class ("header") ;
         pack_start (language_button) ;
         pack_end (about_button) ;
-        title = "Text Snatcher" ;
+        title = "TextSnatcher" ;
         set_show_close_button (true) ;
     }
 
