@@ -55,7 +55,7 @@ public class Application : Gtk.Application {
         add_window (main_window) ;
     }
 
-    public static int main(string[] args) {
+    public static int main (string[] args) {
         var app = new Application () ;
         return app.run (args) ;
     }

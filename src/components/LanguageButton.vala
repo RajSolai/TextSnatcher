@@ -30,16 +30,16 @@ public class LanguageButton : Gtk.MenuButton {
         tha.text = "Thai" ;
         ara.text = "Arabic" ;
 
-        tam.clicked.connect (() => { lang.savePrefLanguage ("tam") ; }) ;
-        tha.clicked.connect (() => { lang.savePrefLanguage ("tha") ; }) ;
-        eng.clicked.connect (() => { lang.savePrefLanguage ("eng") ; }) ;
-        chi_sim.clicked.connect (() => { lang.savePrefLanguage ("chi_sim") ; }) ;
-        jpn.clicked.connect (() => { lang.savePrefLanguage ("jpn") ; }) ;
-        fra.clicked.connect (() => { lang.savePrefLanguage ("fra") ; }) ;
-        rus.clicked.connect (() => { lang.savePrefLanguage ("rus") ; }) ;
-        ara.clicked.connect (() => { lang.savePrefLanguage ("ara") ; }) ;
-        spa.clicked.connect (() => { lang.savePrefLanguage ("spa") ; }) ;
-        hin.clicked.connect (() => { lang.savePrefLanguage ("hin") ; }) ;
+        tam.clicked.connect (() => { lang.save_pref_language ("tam") ; }) ;
+        tha.clicked.connect (() => { lang.save_pref_language ("tha") ; }) ;
+        eng.clicked.connect (() => { lang.save_pref_language ("eng") ; }) ;
+        chi_sim.clicked.connect (() => { lang.save_pref_language ("chi_sim") ; }) ;
+        jpn.clicked.connect (() => { lang.save_pref_language ("jpn") ; }) ;
+        fra.clicked.connect (() => { lang.save_pref_language ("fra") ; }) ;
+        rus.clicked.connect (() => { lang.save_pref_language ("rus") ; }) ;
+        ara.clicked.connect (() => { lang.save_pref_language ("ara") ; }) ;
+        spa.clicked.connect (() => { lang.save_pref_language ("spa") ; }) ;
+        hin.clicked.connect (() => { lang.save_pref_language ("hin") ; }) ;
 
         menu_list_one.add (eng) ;
         menu_list_one.add (chi_sim) ;

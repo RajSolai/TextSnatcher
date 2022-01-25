@@ -11,28 +11,28 @@ class TesseractTrigger : Object {
         screenshot = new ScreenShot () ;
     }
 
-    public async void takeScreenShot (Gtk.Label label) {
+    public async void take_screenshot (Gtk.Label label) {
         label.label = "Drag over the Text" ;
         try {
-            string path = yield screenshot.captureScreen () ;
-            yield readImage(label, path) ;
+            string path = yield screenshot.capture_screen () ;
+            yield read_image (label, path) ;
 
         } catch ( Error e ) {
             critical (e.message) ;
         }
     }
 
-    async void readImage (Gtk.Label label, string file_path) {
+    async void read_image (Gtk.Label label, string file_path) {
         var lang_service = new LanguageService () ;
-        string lang = lang_service.getPrefLanguage () ;
+        string lang = lang_service.get_pref_language () ;
         label.label = "Reading Image" ;
-        Idle.add (readImage.callback) ;
+        Idle.add (read_image.callback) ;
         yield ;
         try {
             string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
             Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
             if ( stat == 0 ) {
-                copyToClipBoard (label) ;
+                copy_to_clipBoard (label) ;
             } else {
                 print ("Error is " + err + " status is " + stat.to_string ()) ;
                 label.label = "Error Reading Image" ;
@@ -42,7 +42,7 @@ class TesseractTrigger : Object {
         }
     }
 
-    void copyToClipBoard (Gtk.Label label) {
+    void copy_to_clipBoard (Gtk.Label label) {
         try {
             clipboard = Gtk.Clipboard.get_default (display) ;
             string text_output ;
@@ -58,8 +58,8 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async bool startProcess (Gtk.Label label_widget) {
-        yield takeScreenShot (label_widget) ;
+    public async bool start_tess_process (Gtk.Label label_widget) {
+        yield take_screenshot (label_widget) ;
 
         return true ;
 
