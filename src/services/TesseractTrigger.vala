@@ -32,7 +32,7 @@ class TesseractTrigger : Object {
             string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
             Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
             if ( stat == 0 ) {
-                copy_to_clipBoard (label) ;
+                copy_to_clipboard (label) ;
             } else {
                 print ("Error is " + err + " status is " + stat.to_string ()) ;
                 label.label = "Error Reading Image" ;
@@ -42,7 +42,7 @@ class TesseractTrigger : Object {
         }
     }
 
-    void copy_to_clipBoard (Gtk.Label label) {
+    void copy_to_clipboard (Gtk.Label label) {
         try {
             clipboard = Gtk.Clipboard.get_default (display) ;
             string text_output ;
