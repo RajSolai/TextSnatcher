@@ -3,10 +3,10 @@ public class LanguageButton : Gtk.MenuButton {
         Object (
             image: new Gtk.Image.from_icon_name ("preferences-desktop-locale", Gtk.IconSize.SMALL_TOOLBAR)
             ) ;
-        var menu_grid = new Gtk.Grid () ;
-        var menu_list_one = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
-        var menu_list_two = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
-        menu_grid.orientation = Gtk.Orientation.HORIZONTAL ;
+        var menu_list = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
+        var scroll_view = new Gtk.ScrolledWindow (null, null) ;
+        scroll_view.height_request = 190 ;
+        scroll_view.width_request = 150 ;
         var lang = new LanguageService () ;
         var tam = new Gtk.ModelButton () ;
         var hin = new Gtk.ModelButton () ;
@@ -41,22 +41,21 @@ public class LanguageButton : Gtk.MenuButton {
         spa.clicked.connect (() => { lang.save_pref_language ("spa") ; }) ;
         hin.clicked.connect (() => { lang.save_pref_language ("hin") ; }) ;
 
-        menu_list_one.add (eng) ;
-        menu_list_one.add (chi_sim) ;
-        menu_list_one.add (jpn) ;
-        menu_list_one.add (tam) ;
-        menu_list_one.add (spa) ;
-        menu_list_two.add (fra) ;
-        menu_list_two.add (ara) ;
-        menu_list_two.add (tha) ;
-        menu_list_two.add (rus) ;
-        menu_list_two.add (hin) ;
+        menu_list.add (eng) ;
+        menu_list.add (chi_sim) ;
+        menu_list.add (jpn) ;
+        menu_list.add (tam) ;
+        menu_list.add (spa) ;
+        menu_list.add (fra) ;
+        menu_list.add (ara) ;
+        menu_list.add (tha) ;
+        menu_list.add (rus) ;
+        menu_list.add (hin) ;
 
-        menu_grid.add (menu_list_one) ;
-        menu_grid.add (menu_list_two) ;
-        menu_grid.show_all () ;
+        scroll_view.add (menu_list) ;
+        scroll_view.show_all () ;
         var popover = new Gtk.Popover (null) ;
-        popover.add (menu_grid) ;
+        popover.add (scroll_view) ;
         this.popover = popover ;
     }
 
