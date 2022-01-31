@@ -6,11 +6,9 @@ class TesseractTrigger : Object {
     int stat ;
     Gdk.Display display = Gdk.Display.get_default () ;
     ScreenShot screenshot ;
-    DependencyService dep_service;
 
     construct {
         screenshot = new ScreenShot () ;
-        dep_service = new DependencyService () ;
     }
 
     public async void take_screenshot (Gtk.Label label) {
