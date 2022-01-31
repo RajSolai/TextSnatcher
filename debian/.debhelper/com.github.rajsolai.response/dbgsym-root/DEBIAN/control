@@ -1,0 +1,13 @@
+Package: com.github.rajsolai.response-dbgsym
+Package-Type: ddeb
+Source: com.github.rajsolai.response
+Version: 1.1.1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Solai Raj <msraj085@gmail.com>
+Installed-Size: 149
+Depends: com.github.rajsolai.response (= 1.1.1)
+Section: debug
+Priority: optional
+Description: debug symbols for com.github.rajsolai.response
+Build-Ids: 8531804762b9308a748276f0fa7c4fcb51f10d73
