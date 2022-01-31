@@ -2,3 +2,4 @@
 .travis.yml
 /.flatpak-builder
 gnomeapp.yml
+/obj-x86_64-linux-gnu
