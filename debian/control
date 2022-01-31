@@ -1,0 +1,18 @@
+Source: com.github.rajsolai.textsnatcher
+Section: unknown
+Priority: optional
+Maintainer: Solai Raj <solairaj@gmail.com> github.com/RajSolai
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.1
+Homepage: https://github.com/RajSolai/TextSnatcher
+#Vcs-Browser: https://salsa.debian.org/debian/com.github.rajsolai.textsnatcher
+#Vcs-Git: https://salsa.debian.org/debian/com.github.rajsolai.textsnatcher.git
+
+Package: com.github.rajsolai.textsnatcher
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Snatch Text with just a Drag
+ Multiple Language Support.
+ Copy Text from images with a Drag.
+ Drag over any Image and Paste.
+ Fast and Easy to Use.
