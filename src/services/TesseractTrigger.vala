@@ -6,9 +6,11 @@ class TesseractTrigger : Object {
     int stat ;
     Gdk.Display display = Gdk.Display.get_default () ;
     ScreenShot screenshot ;
+    DependencyService dep_service;
 
     construct {
         screenshot = new ScreenShot () ;
+        dep_service = new DependencyService () ;
     }
 
     public async void take_screenshot (Gtk.Label label) {
@@ -38,7 +40,9 @@ class TesseractTrigger : Object {
                 label.label = "Error Reading Image" ;
             }
         } catch ( Error e ) {
-            critical (e.message) ;
+            if (e.code == 8) {
+                label.label = "Dependencies Not Found \n Follow Installation Manual" ;
+            }
         }
     }
 
