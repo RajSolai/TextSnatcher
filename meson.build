@@ -20,6 +20,7 @@ dependencies = [
     dependency('granite'),
     dependency('gobject-2.0'),
     dependency('libhandy-1'),
+    dependency('libportal'),
     dependency('gdk-pixbuf-2.0'),
     dependency('glib-2.0'),
     dependency('gtk+-3.0')

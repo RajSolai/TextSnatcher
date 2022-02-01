@@ -11,5 +11,6 @@ sources = files (
     'services/LanguageService.vala',
     'services/TesseractTrigger.vala',
     'services/ScreenShot.vala',
+    'services/FilePathService.vala',
     'services/ScreenShotProxy.vala'
 )
