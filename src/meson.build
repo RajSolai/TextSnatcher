@@ -9,8 +9,5 @@ sources = files (
     'components/AboutDialog.vala',
     'screens/MainScreen.vala',
     'services/LanguageService.vala',
-    'services/TesseractTrigger.vala',
-    'services/ScreenShot.vala',
-    'services/FilePathService.vala',
-    'services/ScreenShotProxy.vala'
+    'services/TesseractTrigger.vala'
 )

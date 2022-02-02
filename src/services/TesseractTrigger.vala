@@ -6,28 +6,13 @@ class TesseractTrigger : Object {
     int stat ;
     Gdk.Display display = Gdk.Display.get_default () ;
     Gtk.Label label ;
-    ScreenShot screenshot ;
-    FilePathService file_path_service ;
     Xdp.Portal portal ;
 
     construct {
-        portal = new Xdp.Portal ();
-        screenshot = new ScreenShot () ;
+        portal = new Xdp.Portal () ;
     }
 
-  //  public async void take_screenshot (Gtk.Label label) {
-   //     label.label = "Drag over the Text" ;
-   //     try {
-   //         screenshot.take_screenshot () ;
-   //         string path = file_path_service.get_file_path ();
-   //         yield read_image (label, path) ;
-
-   //     } catch ( Error e ) {
-   //         critical (e.message) ;
-   //     }
-   // }
-
-    async void read_image (string file_path) {
+    async void read_image(string file_path) {
         var lang_service = new LanguageService () ;
         string lang = lang_service.get_pref_language () ;
         label.label = "Reading Image" ;
@@ -36,26 +21,26 @@ class TesseractTrigger : Object {
         try {
             string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
             Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
-            if ( stat == 0 ) {
+            if( stat == 0 ) {
                 copy_to_clipboard () ;
             } else {
                 print ("Error is " + err + " status is " + stat.to_string ()) ;
                 label.label = "Error Reading Image" ;
             }
         } catch ( Error e ) {
-            critical (e.message);
-            if (e.code == 8) {
+            critical (e.message) ;
+            if( e.code == 8 ) {
                 label.label = "Dependencies Not Found" ;
             }
         }
     }
 
-    void copy_to_clipboard () {
+    void copy_to_clipboard() {
         try {
             clipboard = Gtk.Clipboard.get_default (display) ;
             string text_output ;
             FileUtils.get_contents (out_path + ".txt", out text_output) ;
-            if ( text_output.length > 0 ) {
+            if( text_output.length > 0 ) {
                 clipboard.set_text (text_output, text_output.length) ;
                 label.label = "Checkout Clipboard :)" ;
             } else {
@@ -66,34 +51,36 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void take_screenshot (Gtk.Label label_widget) {
-         //Xdp.Parent parent = Xdp.parent_new_gtk (get_native () as Gtk.Window);
+    public async void take_screenshot(Gtk.Label label_widget) {
 
-           portal.take_screenshot.begin (
-                null,
-                Xdp.ScreenshotFlags.INTERACTIVE,
-                null,
-                save_shot
-            );
+        portal.take_screenshot.begin (
+            null,
+            Xdp.ScreenshotFlags.INTERACTIVE,
+            null,
+            save_shot
+            ) ;
 
     }
 
-      public void save_shot (GLib.Object? obj, GLib.AsyncResult res) {
-            string uri;
-            try {
-                uri = portal.take_screenshot.end (res);
-                string path = GLib.Filename.from_uri (uri, null);
-                print (path);
-                read_image (path);
-            }
-            catch (Error e) {
-                critical (e.message);
-            }
+    public void save_shot(GLib.Object ? obj, GLib.AsyncResult res) {
+        string uri ;
+        try {
+            uri = portal.take_screenshot.end (res) ;
+            string path = GLib.Filename.from_uri (uri, null) ;
+            print (path) ;
+            read_image.begin (path, (obj, res) => {
+                print ("Done") ;
+            }) ;
+        } catch ( Error e ) {
+            critical (e.message) ;
         }
+    }
 
-    public async bool start_tess_process (Gtk.Label label_widget) {
-    label = label_widget;
-        yield take_screenshot (label_widget) ;
+    public async bool start_tess_process(Gtk.Label label_widget) {
+        label = label_widget ;
+        yield take_screenshot(label_widget) ;
+
         return true ;
     }
+
 }
