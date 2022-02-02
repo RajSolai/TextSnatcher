@@ -11,7 +11,7 @@ public class MainScreen : Gtk.EventBox {
         var start_button = new Gtk.Button.with_label ("Snatch Now !") ;
         start_button.get_style_context ().add_class ("start-button") ;
         start_button.clicked.connect (() => {
-            title_label.label = "Drag anywhere !" ;
+            title_label.label = "Select Area to Grab !" ;
             trigger.start_tess_process.begin (title_label, (obj, res) => {
                 print ("Process Done") ;
             }) ;
