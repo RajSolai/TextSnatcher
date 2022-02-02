@@ -21,4 +21,5 @@ modules:
     sources:
       - type: dir
         path: .
+  - manifests/libportal.yml
   - manifests/tesseract.yml 
