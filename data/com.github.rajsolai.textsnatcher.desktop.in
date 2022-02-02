@@ -6,5 +6,5 @@ GenericName=TextSnatcher
 Exec=com.github.rajsolai.textsnatcher %U
 Icon=com.github.rajsolai.textsnatcher
 Terminal=false
-Categories=Office;
+Categories=Graphics;Scanning;
 Keywords=TextSnatcher;OCR;
