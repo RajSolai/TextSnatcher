@@ -1,25 +1,23 @@
 app-id: com.github.rajsolai.textsnatcher
 
 runtime: io.elementary.Platform
-runtime-version: '6'
+runtime-version: "6"
 sdk: io.elementary.Sdk
 command: com.github.rajsolai.textsnatcher
 
 finish-args:
-  - '--share=ipc'
-  - '--socket=fallback-x11'
-  - '--socket=wayland'
-  - '--share=network'
-  - '--device=dri'
-  - '--filesystem=/home'
-  - '--talk-name=org.gnome.Shell.Screenshot'
-
+  - "--share=ipc"
+  - "--socket=fallback-x11"
+  - "--socket=wayland"
+  - "--share=network"
+  - "--device=dri"
+  - "--system-talk-name=org.freedesktop.Accounts"
 
 modules:
+  - manifests/libportal.yml
+  - manifests/tesseract.yml
   - name: com.github.rajsolai.textsnatcher
     buildsystem: meson
     sources:
       - type: dir
         path: .
-  - manifests/libportal.yml
-  - manifests/tesseract.yml 
