@@ -12,7 +12,7 @@ class TsAboutDialog : Gtk.AboutDialog {
         program_name = "TextSnatcher" ;
         comments = "Snatch Text with a Drag" ;
         copyright = null ;
-        version = "1.0.0" ;
+        version = "1.0.1" ;
 
         license = null ;
         wrap_license = true ;
