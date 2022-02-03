@@ -1,7 +1,7 @@
 # Changelog
 TextSnatcher Gtk App's Version Changelog.
 
-## v1.0.1 Initial Release [02-02-2022]
+## v1.0.1 libportal Implementaion [02-02-2022]
 ### Added
 - libportal-0.5 based screenshot backend.
 
