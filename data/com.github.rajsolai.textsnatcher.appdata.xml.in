@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020 solairaj <msraj085@gmail.com> -->
+<!-- Copyright 2022 solairaj <msraj085@gmail.com> -->
 <component type="desktop">
   <id>com.github.rajsolai.textsnatcher</id>
   <metadata_license>CC0-1.0</metadata_license>
@@ -24,14 +24,31 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.0.1" date="2022-02-02">
+      <description>
+        <p>v1.0.1</p>
+        <ul>
+          <li>libportal-0.5 based screenshot backend.</li>
+          <li>Usage of minimal permissions.</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.0" date="2022-01-27">
       <description>
         <p>v1.0.0</p>
         <ul>
-          <li>- New Window Method</li>
-          <li>- Rounded Windows</li>
-          <li>- Dropdown to select Device</li>
-          <li>- Bug Fix and Optimizations</li>
+          <li> 
+           Basic OCR Operations.
+          </li>
+          <li>
+           ENG,TAM,RUS,JAP,HIN,SPA,THA,CHI,ARA,FRN Language Support added.
+          </li>
+          <li>
+           libhandy-1 based window.
+          </li>
+          <li>
+            Uses Tesseract-v4.x.
+          </li>
         </ul>
       </description>
     </release>
