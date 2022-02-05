@@ -4,3 +4,7 @@
 .start-button {
     min-height: 50px;
 }
+
+header .header {
+    background-color: transparent;
+}
