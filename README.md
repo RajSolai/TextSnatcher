@@ -7,13 +7,14 @@
 <h1>TextSnatcher</h1>
 <p>Copy Text from Images with ease, Perform OCR operations in seconds.</p>
 <img alt="TextSnatcher OCR App for Linux" src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-default.png"/>
-<a href='https://flathub.org/apps/details/com.github.rajsolai.textsnatcher'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
-<a href="https://appcenter.elementary.io/com.github.rajsolai.textsnatcher"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"></a>
-
-
 </div>
-<!--
-## Download -->
+
+## Download
+
+<div align="center">
+  <a href='https://flathub.org/apps/details/com.github.rajsolai.textsnatcher'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a></br>
+<a href="https://appcenter.elementary.io/com.github.rajsolai.textsnatcher"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"></a>
+</div>
 
 ## Features
 - Multiple Language Support.
