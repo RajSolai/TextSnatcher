@@ -27,7 +27,15 @@ recognition.
 
 ## Screencasts
 
-![TextSnatcher OCR App for Linux](https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/vid.gif)
+
+
+https://user-images.githubusercontent.com/54436424/152921719-228485ba-0d37-4b01-864e-63a2792248b5.mp4
+
+
+
+https://user-images.githubusercontent.com/54436424/152921736-c9567c9d-0afa-4c09-8706-6b2a1b6b635a.mp4
+
+
 
 ## Screenshots
 
