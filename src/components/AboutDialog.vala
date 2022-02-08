@@ -22,9 +22,11 @@ class TsAboutDialog : Gtk.AboutDialog {
 
         response.connect ((response_id) => {
             if ( response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT ) {
-                hide_on_delete () ;
+                hide () ;
             }
         }) ;
+
+        present();
 
     }
 
