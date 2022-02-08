@@ -13,7 +13,7 @@ finish-args:
 
 modules:
   - manifests/libportal.yml
-  - manifests/tesseract.yml
+    #- manifests/tesseract.yml
   - name: com.github.rajsolai.textsnatcher
     buildsystem: meson
     sources:
