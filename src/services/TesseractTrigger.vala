@@ -69,7 +69,7 @@ class TesseractTrigger : Object {
             string path = GLib.Filename.from_uri (uri, null) ;
             print (path) ;
             read_image.begin (path, (obj, res) => {
-                label.label = "Reading Image" ;
+                print ("Taking Screenshot");
             }) ;
         } catch ( Error e ) {
             critical (e.message) ;
