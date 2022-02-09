@@ -8,6 +8,7 @@ public class CustomHeaderBar : Hdy.HeaderBar {
         get_style_context ().add_class ("header") ;
         pack_start (language_button) ;
         pack_end (about_button) ;
+        decoration_layout = "close:";
         title = "TextSnatcher" ;
         set_show_close_button (true) ;
     }
