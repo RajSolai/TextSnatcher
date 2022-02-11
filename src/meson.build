@@ -7,6 +7,7 @@ sources = files (
     'components/LanguageButton.vala',
     'components/AboutButton.vala',
     'components/AboutDialog.vala',
+    'components/SelectPictureDialog.vala',
     'screens/MainScreen.vala',
     'services/LanguageService.vala',
     'services/TesseractTrigger.vala'
