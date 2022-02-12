@@ -5,7 +5,7 @@ gnomeapp.yml
 /obj-x86_64-linux-gnu
 /debian/.debhelper
 /debian/debhelper-build-stamp
-/debian/com.github.rajsolai.response.debhelper.log
+/debian/com.github.rajsolai.textsnatcher.debhelper.log
 /debian/com.github.rajsolai.textsnatcher.substvars
 /debian/com.github.rajsolai.textsnatcher
 /debian/files
