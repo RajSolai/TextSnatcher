@@ -77,6 +77,7 @@ class TesseractTrigger : Object {
     }
 
     public async bool start_tess_process(Gtk.Label label_widget) {
+        string arg = Environment.get_variable ("XDG_SESSION_TYPE");
         label = label_widget ;
         yield take_screenshot(label_widget) ;
 
