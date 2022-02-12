@@ -1,7 +1,7 @@
 /build
 .travis.yml
 /.flatpak-builder
-gnomeapp.yml
+# gnomeapp.yml
 /obj-x86_64-linux-gnu
 /debian/.debhelper
 /debian/debhelper-build-stamp
