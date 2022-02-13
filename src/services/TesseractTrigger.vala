@@ -19,7 +19,7 @@ class TesseractTrigger : Object {
         Idle.add (read_image.callback) ;
         yield ;
         try {
-            string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
+            string tess_command = "tesseract " + file_path + " " + out_path + "/out.txt " + @" -l $lang" ;
             Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
             if( stat == 0 ) {
                 copy_to_clipboard () ;
@@ -39,7 +39,7 @@ class TesseractTrigger : Object {
         try {
             clipboard = Gtk.Clipboard.get_default (display) ;
             string text_output ;
-            FileUtils.get_contents (out_path + ".txt", out text_output) ;
+            FileUtils.get_contents (out_path + "/out.txt", out text_output) ;
             if( text_output.length > 0 ) {
                 clipboard.set_text (text_output, text_output.length) ;
                 label.label = "Checkout Clipboard :)" ;
@@ -51,15 +51,28 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void take_screenshot(Gtk.Label label_widget) {
+    public async void save_shot_scrot () {
+        try {
+             Process.spawn_command_line_sync ("scrot -s " + out_path + "/shot.png") ;
 
-        portal.take_screenshot.begin (
+         } catch ( Error e ){
+             print (e.message) ;
+         }
+    }
+
+    public async void take_screenshot(Gtk.Label label_widget) {
+        string session = Environment.get_variable ("XDG_SESSION_TYPE");
+        if (session == "x11") {
+            save_shot_scrot();
+        }else {
+            portal.take_screenshot.begin (
             null,
             Xdp.ScreenshotFlags.INTERACTIVE,
             null,
             save_shot
             ) ;
-
+        }
+        
     }
 
     public void save_shot(GLib.Object ? obj, GLib.AsyncResult res) {
@@ -77,7 +90,6 @@ class TesseractTrigger : Object {
     }
 
     public async bool start_tess_process(Gtk.Label label_widget) {
-        string arg = Environment.get_variable ("XDG_SESSION_TYPE");
         label = label_widget ;
         yield take_screenshot(label_widget) ;
 
