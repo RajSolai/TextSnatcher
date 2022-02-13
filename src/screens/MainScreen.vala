@@ -16,7 +16,7 @@ public class MainScreen : Gtk.EventBox {
             //  trigger.start_tess_process.begin (title_label, (obj, res) => {
             //      print ("Process Done") ;
             //  }) ;
-            select_picture_dialog = new SelectPictureDialog();
+            select_picture_dialog = new SelectPictureDialog(title_label);
             string arg = Environment.get_variable ("XDG_SESSION_TYPE");
             print(arg);
         }) ;

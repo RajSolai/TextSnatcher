@@ -1,7 +1,8 @@
 class SelectPictureDialog : Hdy.Window {
-    public SelectPictureDialog () {
+    public SelectPictureDialog (Gtk.Label title_label) {
+        var tesseract_trigger = new TesseractTrigger();
         var dialog_handle = new Hdy.WindowHandle();
-        var pic_dialog_title = new Gtk.Label("Where can I find Screenshot ?");
+        var pic_dialog_title = new Gtk.Label("Where can I find the Image ?");
         var main_box = new Gtk.Box(Gtk.Orientation.VERTICAL,10);
         var cancel_btn = new Gtk.Button.with_label("Cancel");
         var take_screenshot_btn = new Gtk.Button.with_label("Take Screenshot");
@@ -14,6 +15,18 @@ class SelectPictureDialog : Hdy.Window {
 
         main_box.get_style_context().add_class("select-pic-box");
         pic_dialog_title.get_style_context().add_class("dialog-title");
+
+        choose_file_btn.clicked.connect (()=>{
+             tesseract_trigger.start_tess_process.begin (title_label, "file", (obj, res) => {
+                  print ("Process Done") ;
+            }) ;
+        });
+
+        take_screenshot_btn.clicked.connect(()=>{
+            tesseract_trigger.start_tess_process.begin (title_label, "shot", (obj, res) => {
+                  print ("Process Done") ;
+            }) ;
+        });
 
         cancel_btn.clicked.connect(()=>{
             close();
