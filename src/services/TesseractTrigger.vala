@@ -12,6 +12,35 @@ class TesseractTrigger : Object {
         portal = new Xdp.Portal () ;
     }
 
+    public void accept_files_fromchooser () {
+        portal.open_file.begin (
+                null,
+                "Select an Image to perform OCR !",
+                null,
+                null,
+                null,
+                Xdp.OpenFileFlags.NONE,
+                null,
+                filechooser_callback
+        );
+    }
+
+     void filechooser_callback (GLib.Object? obj, GLib.AsyncResult res) {
+            GLib.Variant info;
+            try {
+                info = portal.open_file.end (res);
+                Variant uris = info.lookup_value ("uris", VariantType.STRING_ARRAY);
+                string[] files = uris as string[];
+                string lead_file = files[0];
+                read_image.begin (lead_file, (obj, res) => {
+                    print ("Reading file from chooser");
+                }) ;
+            }
+            catch (Error e) {
+                critical (e.message);
+            }
+        }
+
     async void read_image(string file_path) {
         var lang_service = new LanguageService () ;
         string lang = lang_service.get_pref_language () ;
@@ -19,7 +48,7 @@ class TesseractTrigger : Object {
         Idle.add (read_image.callback) ;
         yield ;
         try {
-            string tess_command = "tesseract " + file_path + " " + out_path + "/out.txt " + @" -l $lang" ;
+            string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
             Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
             if( stat == 0 ) {
                 copy_to_clipboard () ;
@@ -39,7 +68,7 @@ class TesseractTrigger : Object {
         try {
             clipboard = Gtk.Clipboard.get_default (display) ;
             string text_output ;
-            FileUtils.get_contents (out_path + "/out.txt", out text_output) ;
+            FileUtils.get_contents (out_path + ".txt" , out text_output) ;
             if( text_output.length > 0 ) {
                 clipboard.set_text (text_output, text_output.length) ;
                 label.label = "Checkout Clipboard :)" ;
@@ -60,19 +89,24 @@ class TesseractTrigger : Object {
          }
     }
 
-    public async void take_screenshot(Gtk.Label label_widget) {
+    public async void take_screenshot(Gtk.Label label_widget,string type) {
         string session = Environment.get_variable ("XDG_SESSION_TYPE");
-        if (session == "x11") {
-            save_shot_scrot();
-        }else {
-            portal.take_screenshot.begin (
-            null,
-            Xdp.ScreenshotFlags.INTERACTIVE,
-            null,
-            save_shot
-            ) ;
+        if (type == "file") {
+             accept_files_fromchooser();
+        } else if (type == "clip"){
+            print("to implement");
+        } else {
+            if (session == "x11") {
+                yield save_shot_scrot();
+            }else {
+                portal.take_screenshot.begin (
+                null,
+                Xdp.ScreenshotFlags.INTERACTIVE,
+                null,
+                save_shot
+                ) ;
+            }
         }
-        
     }
 
     public void save_shot(GLib.Object ? obj, GLib.AsyncResult res) {
@@ -89,9 +123,9 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async bool start_tess_process(Gtk.Label label_widget) {
+    public async bool start_tess_process(Gtk.Label label_widget,string type) {
         label = label_widget ;
-        yield take_screenshot(label_widget) ;
+        yield take_screenshot(label_widget, type) ;
 
         return true ;
     }
