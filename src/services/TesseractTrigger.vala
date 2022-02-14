@@ -1,6 +1,6 @@
 class TesseractTrigger : Object {
     string out_path = GLib.Environment.get_home_dir() + "/.textsnatcher" ;
-    string scrot_path = GLib.Environment.get_tmp_dir() + "./textshot.png" ;
+    string scrot_path = GLib.Environment.get_tmp_dir() + "/textshot.png" ;
     Gtk.Clipboard clipboard ;
     string res ;
     string err ;
