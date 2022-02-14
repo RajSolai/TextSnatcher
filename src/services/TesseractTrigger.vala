@@ -1,5 +1,6 @@
 class TesseractTrigger : Object {
-    string out_path = GLib.Environment.get_home_dir () + "/.textsnatcher" ;
+    string out_path = GLib.Environment.get_home_dir() + "/.textsnatcher" ;
+    string scrot_path = GLib.Environment.get_tmp_dir() + "./textshot.png" ;
     Gtk.Clipboard clipboard ;
     string res ;
     string err ;
@@ -23,6 +24,15 @@ class TesseractTrigger : Object {
                 null,
                 filechooser_callback
         );
+    }
+
+    async void save_shot_scrot () {
+        try {
+             Process.spawn_command_line_sync ("scrot -s " + scrot_path) ;
+             yield read_image(scrot_path);
+         } catch ( Error e ){
+             print (e.message) ;
+         }
     }
 
      void filechooser_callback (GLib.Object? obj, GLib.AsyncResult res) {
@@ -80,17 +90,8 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void save_shot_scrot () {
-        try {
-             Process.spawn_command_line_sync ("scrot -s " + out_path + "/shot.png") ;
-
-         } catch ( Error e ){
-             print (e.message) ;
-         }
-    }
-
     public async void take_screenshot(Gtk.Label label_widget,string type) {
-        string session = Environment.get_variable ("XDG_SESSION_TYPE");
+        string session = GLib.Environment.get_variable("XDG_SESSION_TYPE");
         if (type == "file") {
              accept_files_fromchooser();
         } else if (type == "clip"){
@@ -98,7 +99,7 @@ class TesseractTrigger : Object {
         } else {
             if (session == "x11") {
                 yield save_shot_scrot();
-            }else {
+            }else{
                 portal.take_screenshot.begin (
                 null,
                 Xdp.ScreenshotFlags.INTERACTIVE,
@@ -106,6 +107,7 @@ class TesseractTrigger : Object {
                 save_shot
                 ) ;
             }
+
         }
     }
 
