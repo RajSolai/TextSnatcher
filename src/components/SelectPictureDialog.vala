@@ -17,14 +17,16 @@ class SelectPictureDialog : Hdy.Window {
         pic_dialog_title.get_style_context().add_class("dialog-title");
 
         choose_file_btn.clicked.connect (()=>{
+             hide();
              tesseract_trigger.start_tess_process.begin (title_label, "file", (obj, res) => {
-                  print ("Process Done") ;
+                  return ;
             }) ;
         });
 
         take_screenshot_btn.clicked.connect(()=>{
+            hide();
             tesseract_trigger.start_tess_process.begin (title_label, "shot", (obj, res) => {
-                  print ("Process Done") ;
+                  return ;
             }) ;
         });
 
