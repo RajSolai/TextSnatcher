@@ -58,22 +58,24 @@ https://user-images.githubusercontent.com/54436424/152921736-c9567c9d-0afa-4c09-
 
 Ensure you have these dependencies installed
 
+### Runtime Dependency
+-   scrot
+-   tesseract-ocr
+-   tesseract language data
+    [arch repos](https://archlinux.org/packages/community/x86_64/tesseract)
+    [debian repos](https://packages.debian.org/search?keywords=tesseract-ocr)
+
+### Buildtime Dependency
 -   granite
 -   gtk+-3.0
 -   gobject-2.0
 -   gdk-pixbuf-2.0
--   tesseract-ocr
--   tess-best trained data
+-   libhandy-1
+-   libportal-0.5
 
 ## Install, build and run
 
 ```bash
-# install elementary-sdk, meson and ninja
-sudo apt install elementary-sdk meson ninja
-# install tesseract ocr
-sudo apt install tesseract-ocr
-# installed needed tess-data from tessdata_best repo
-https://github.com/tesseract-ocr/tessdata_best/archive/4.0.0.tar.gz
 # clone repository
 git clone https://github.com/RajSolai/TextSnatcher.git TextSnatcher
 # cd to dir
@@ -85,18 +87,6 @@ cd build
 sudo ninja install && com.github.rajsolai.textsnatcher
 ```
 
-## Build Flatpak locally
-
-```bash
-# install elementary-sdk and runtime for flatpak (version 6.0)
-flatpak install io.elementary.Sdk
-# clone the repository
-git clone https://github.com/RajSolai/TextSnatcher.git TextSnatcher
-# cd to dir
-cd TextSnatcher
-# run flatpak build script
-sh fbuild.sh
-```
 ## Inspirations
 
 - ReadMe: https://github.com/alainm23/planner
