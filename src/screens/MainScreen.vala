@@ -1,6 +1,7 @@
 public class MainScreen : Gtk.EventBox {
     SelectPictureDialog select_picture_dialog;
     public MainScreen () {
+        var is_select_dialog_opened = false;
         var trigger = new TesseractTrigger () ;
         var main_box = new Gtk.Grid () ;
         var vbox = new VerticalBox (4) ;
@@ -11,12 +12,22 @@ public class MainScreen : Gtk.EventBox {
         title_label.get_style_context ().add_class ("h2") ;
         var start_button = new Gtk.Button.with_label ("Snatch Now !") ;
         start_button.get_style_context ().add_class ("start-button") ;
+        select_picture_dialog = new SelectPictureDialog(title_label);
+
+        select_picture_dialog.cancel_signal.connect (() => {
+            is_select_dialog_opened = false;
+            select_picture_dialog.hide ();
+        }) ;
+
         start_button.clicked.connect (() => {
             //  title_label.label = "Select Area to Grab !" ;
             //  trigger.start_tess_process.begin (title_label, (obj, res) => {
             //      print ("Process Done") ;
             //  }) ;
-            select_picture_dialog = new SelectPictureDialog(title_label);
+            if (!is_select_dialog_opened) {
+                select_picture_dialog.show_all ();
+                is_select_dialog_opened = true;
+            }
             string arg = Environment.get_variable ("XDG_SESSION_TYPE");
             print(arg);
         }) ;

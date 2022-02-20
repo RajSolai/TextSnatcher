@@ -31,7 +31,7 @@ class SelectPictureDialog : Hdy.Window {
         });
 
         cancel_btn.clicked.connect(()=>{
-            close();
+            cancel_signal ();
         });
 
         main_box.add(pic_dialog_title);
@@ -41,10 +41,11 @@ class SelectPictureDialog : Hdy.Window {
         main_box.add(cancel_btn);
         dialog_handle.add (main_box);
         add (dialog_handle);
-        show_all();
     }
 
     construct {
         Hdy.init();
     }
+
+    public signal void cancel_signal();
 }
