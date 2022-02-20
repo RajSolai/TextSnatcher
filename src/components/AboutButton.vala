@@ -3,12 +3,11 @@ class AboutButton : Gtk.Button {
     public AboutButton () {
         Object (
             image: new Gtk.Image.from_icon_name (
-            "dialog-information-symbolic", Gtk.IconSize.SMALL_TOOLBAR
+                "dialog-information-symbolic", Gtk.IconSize.SMALL_TOOLBAR
             )
-            ) ;
+        );
         clicked.connect (() => {
-            about_dialog = new TsAboutDialog () ;
-        }) ;
+            about_dialog = new TsAboutDialog ();
+        });
     }
-
 }
