@@ -18,17 +18,11 @@ class SelectPictureDialog : Hdy.Window {
 
         choose_file_btn.clicked.connect (() => {
             hide ();
-            tesseract_trigger.start_tess_process.begin (title_label, "file", (obj, res) => {
-                return;
-            });
             perform_signal ("file");
         });
 
         take_screenshot_btn.clicked.connect (() => {
             hide ();
-            tesseract_trigger.start_tess_process.begin (title_label, "shot", (obj, res) => {
-                return;
-            });
             perform_signal ("shot");
         });
 
