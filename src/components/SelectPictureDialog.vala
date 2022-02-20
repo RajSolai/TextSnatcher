@@ -21,6 +21,7 @@ class SelectPictureDialog : Hdy.Window {
              tesseract_trigger.start_tess_process.begin (title_label, "file", (obj, res) => {
                   return ;
             }) ;
+            perform_signal("file");
         });
 
         take_screenshot_btn.clicked.connect(()=>{
@@ -28,6 +29,7 @@ class SelectPictureDialog : Hdy.Window {
             tesseract_trigger.start_tess_process.begin (title_label, "shot", (obj, res) => {
                   return ;
             }) ;
+            perform_signal("shot");
         });
 
         cancel_btn.clicked.connect(()=>{
@@ -48,4 +50,5 @@ class SelectPictureDialog : Hdy.Window {
     }
 
     public signal void cancel_signal();
+    public signal void perform_signal(string image_source);
 }

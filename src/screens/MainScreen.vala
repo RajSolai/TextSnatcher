@@ -2,7 +2,7 @@ public class MainScreen : Gtk.EventBox {
     SelectPictureDialog select_picture_dialog;
     public MainScreen () {
         var is_select_dialog_opened = false;
-        var trigger = new TesseractTrigger () ;
+        var tesseract_trigger = new TesseractTrigger () ;
         var main_box = new Gtk.Grid () ;
         var vbox = new VerticalBox (4) ;
         var title_label = new Gtk.Label ("TextSnatcher") ;
@@ -18,6 +18,12 @@ public class MainScreen : Gtk.EventBox {
             is_select_dialog_opened = false;
             select_picture_dialog.hide ();
         }) ;
+
+        select_picture_dialog.perform_signal.connect (()=>{
+             tesseract_trigger.start_tess_process.begin (title_label, "shot", (obj, res) => {
+                  return ;
+            }) ;
+        });
 
         start_button.clicked.connect (() => {
             //  title_label.label = "Select Area to Grab !" ;
