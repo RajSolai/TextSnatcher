@@ -20,8 +20,8 @@ public class MainScreen : Gtk.EventBox {
         });
 
         select_picture_dialog.perform_signal.connect ((image_source) => {
-        print(image_source);
-            tesseract_trigger.start_tess_process.begin (title_label, "shot", (obj, res) => {
+            print("Using "+image_source);
+            tesseract_trigger.start_tess_process.begin (title_label, image_source, (obj, res) => {
                 return;
             });
         });
