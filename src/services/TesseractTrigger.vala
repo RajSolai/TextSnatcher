@@ -11,6 +11,7 @@ class TesseractTrigger : Object {
 
     construct {
         portal = new Xdp.Portal ();
+        clipboard = Gtk.Clipboard.get_default (display);
     }
 
     public void accept_files_fromchooser () {
@@ -75,7 +76,6 @@ class TesseractTrigger : Object {
 
     void copy_to_clipboard () {
         try {
-            clipboard = Gtk.Clipboard.get_default (display);
             string text_output;
             FileUtils.get_contents (out_path + ".txt", out text_output);
             if (text_output.length > 0) {
@@ -89,12 +89,13 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void take_screenshot (Gtk.Label label_widget, string type) {
+    public async void get_screenshot (Gtk.Label label_widget, string type) {
         string session = GLib.Environment.get_variable ("XDG_SESSION_TYPE");
         if (type == "file") {
             accept_files_fromchooser ();
         } else if (type == "clip") {
             print ("to implement");
+            clipboard.request_image (clipboard_callback);
         } else {
             if (session == "x11") {
                 yield save_shot_scrot ();
@@ -107,6 +108,14 @@ class TesseractTrigger : Object {
                 );
             }
         }
+    }
+
+    void clipboard_callback (Gtk.Clipboard _,Gdk.Pixbuf pixbuf) {
+            File file = File.new_for_path(Path.build_filename(scrot_path));
+                DataOutputStream fos = new DataOutputStream(file.create(FileCreateFlags.REPLACE_DESTINATION));
+                pixbuf.save_to_stream_async.begin(fos, "png", null, () => {
+                    print("done da");
+                });
     }
 
     public void save_shot (GLib.Object ? obj, GLib.AsyncResult res) {
@@ -125,7 +134,7 @@ class TesseractTrigger : Object {
 
     public async bool start_tess_process (Gtk.Label label_widget, string type) {
         label = label_widget;
-        yield take_screenshot (label_widget, type);
+        yield get_screenshot (label_widget, type);
 
         return true;
     }
