@@ -95,10 +95,10 @@ class TesseractTrigger : Object {
             accept_files_fromchooser ();
         } else if (type == "clip") {
             print ("to implement");
-            if (clipboard.wait_is_image_available ()){
-            clipboard.request_image (clipboard_callback);
-            }else{
-            print ("no image found");
+            if (clipboard.wait_is_image_available ()) {
+                clipboard.request_image (clipboard_callback);
+            } else {
+                print ("no image found");
             }
         } else {
             if (session == "x11") {
@@ -114,23 +114,22 @@ class TesseractTrigger : Object {
         }
     }
 
-    void clipboard_callback (Gtk.Clipboard _,Gdk.Pixbuf pixbuf) {
-    try {
+    void clipboard_callback (Gtk.Clipboard _, Gdk.Pixbuf pixbuf) {
+        try {
 
-            File file = File.new_for_path(Path.build_filename(scrot_path));
-            if (file.query_exists (null)){
+            File file = File.new_for_path (Path.build_filename (scrot_path));
+            if (file.query_exists (null)) {
                 file.delete (null);
-           }
-                DataOutputStream fos = new DataOutputStream(file.create(FileCreateFlags.REPLACE_DESTINATION));
-                pixbuf.save_to_stream_async.begin(fos, "png", null, () => {
-                    read_image.begin (scrot_path, (obj, res) => {
-                print ("Reading shit");
-            });
-
+            }
+            DataOutputStream fos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION));
+            pixbuf.save_to_stream_async.begin (fos, "png", null, () => {
+                read_image.begin (scrot_path, (obj, res) => {
+                    print ("Reading shit");
                 });
-    } catch (Error err) {
-        critical(err.message);
-    }
+            });
+        } catch (Error err) {
+            critical (err.message);
+        }
     }
 
     public void save_shot (GLib.Object ? obj, GLib.AsyncResult res) {
