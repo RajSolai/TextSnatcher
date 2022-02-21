@@ -95,7 +95,11 @@ class TesseractTrigger : Object {
             accept_files_fromchooser ();
         } else if (type == "clip") {
             print ("to implement");
+            if (clipboard.wait_is_image_available ()){
             clipboard.request_image (clipboard_callback);
+            }else{
+            print ("no image found");
+            }
         } else {
             if (session == "x11") {
                 yield save_shot_scrot ();
@@ -111,6 +115,8 @@ class TesseractTrigger : Object {
     }
 
     void clipboard_callback (Gtk.Clipboard _,Gdk.Pixbuf pixbuf) {
+    try {
+
             File file = File.new_for_path(Path.build_filename(scrot_path));
             if (file.query_exists (null)){
                 file.delete (null);
@@ -122,6 +128,9 @@ class TesseractTrigger : Object {
             });
 
                 });
+    } catch (Error err) {
+        critical(err.message);
+    }
     }
 
     public void save_shot (GLib.Object ? obj, GLib.AsyncResult res) {
