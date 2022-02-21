@@ -112,9 +112,15 @@ class TesseractTrigger : Object {
 
     void clipboard_callback (Gtk.Clipboard _,Gdk.Pixbuf pixbuf) {
             File file = File.new_for_path(Path.build_filename(scrot_path));
+            if (file.query_exists (null)){
+                file.delete (null);
+           }
                 DataOutputStream fos = new DataOutputStream(file.create(FileCreateFlags.REPLACE_DESTINATION));
                 pixbuf.save_to_stream_async.begin(fos, "png", null, () => {
-                    print("done da");
+                    read_image.begin (scrot_path, (obj, res) => {
+                print ("Reading shit");
+            });
+
                 });
     }
 
