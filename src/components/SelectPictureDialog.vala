@@ -26,6 +26,11 @@ class SelectPictureDialog : Hdy.Window {
             perform_signal ("shot");
         });
 
+        from_clipb_btn.clicked.connect (() => {
+            hide ();
+            perform_signal ("clip");
+        });
+
         cancel_btn.clicked.connect (() => {
             cancel_signal ();
         });
