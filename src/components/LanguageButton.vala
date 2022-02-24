@@ -3,7 +3,7 @@ public class LanguageButton : Gtk.MenuButton {
         Object (
             image: new Gtk.Image.from_icon_name ("preferences-desktop-locale", Gtk.IconSize.SMALL_TOOLBAR)
         ) ;
-        var menu_list = new Gtk.Box (Gtk.Orientation.VERTICAL, 2) ;
+        var menu_list = new Gtk.Box (Gtk.Orientation.VERTICAL, 5) ;
         var scroll_view = new Gtk.ScrolledWindow (null, null) ;
         scroll_view.height_request = 190 ;
         scroll_view.width_request = 150 ;
