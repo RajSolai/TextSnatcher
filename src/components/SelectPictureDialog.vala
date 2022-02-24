@@ -1,6 +1,5 @@
 class SelectPictureDialog : Hdy.Window {
     public SelectPictureDialog (Gtk.Label title_label) {
-        var tesseract_trigger = new TesseractTrigger () ;
         var dialog_handle = new Hdy.WindowHandle () ;
         var pic_dialog_title = new Gtk.Label ("Where can I find the Image ?") ;
         var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) ;
