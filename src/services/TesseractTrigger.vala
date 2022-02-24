@@ -29,7 +29,7 @@ class TesseractTrigger : Object {
 
     async void save_shot_scrot () {
         try {
-            Process.spawn_command_line_sync ("scrot -s " + scrot_path) ;
+            Process.spawn_command_line_sync ("scrot -s -o " + scrot_path) ;
             yield read_image (scrot_path) ;
         } catch (Error e) {
             print (e.message) ;
