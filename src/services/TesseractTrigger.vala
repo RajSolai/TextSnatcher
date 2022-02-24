@@ -99,6 +99,7 @@ class TesseractTrigger : Object {
                 clipboard.request_image (clipboard_callback) ;
             } else {
                 print ("no image found") ;
+                label.label = "No Image found in Clipboard";
             }
         } else {
             if (session == "x11") {
