@@ -13,7 +13,26 @@ finish-args:
 
 modules:
   - manifests/libportal.yml
-    #- manifests/tesseract.yml
+  - manifests/tesseract.yml
+
+  - name: libbsd
+    sources:
+      - type: archive
+        url: https://libbsd.freedesktop.org/releases/libbsd-0.9.1.tar.xz
+        sha256: 56d835742327d69faccd16955a60b6dcf30684a8da518c4eca0ac713b9e0a7a4
+
+  - name: imlib2
+    sources:
+      - type: git
+        url: https://github.com/kkoudev/imlib2.git
+        commit: 0f6782427dd4f49a4d1da03bec133e6a27f994a3
+
+  - name: scrot
+    sources:
+      - type: archive
+        url: https://github.com/resurrecting-open-source-projects/scrot/archive/refs/tags/1.7.tar.gz
+        sha256: e4ff764f93ea98018d46192c35bd34eeb577040ac6e217aa0d83b2a63d88f66b
+
   - name: com.github.rajsolai.textsnatcher
     buildsystem: meson
     sources:
