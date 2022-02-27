@@ -18,8 +18,12 @@ public class LanguageButton : Gtk.MenuButton {
         var tha = new Gtk.ModelButton () ;
         var fra = new Gtk.ModelButton () ;
         var ara = new Gtk.ModelButton () ;
+        var nld = new Gtk.ModelButton () ; // Dutch Language is represented as nld
+        var tur = new Gtk.ModelButton () ;
 
         tam.text = "Tamil" ;
+	nld.text = "Dutch" ;
+	tur.text = "Turkish" ;
         eng.text = "English" ;
         hin.text = "Hindi" ;
         spa.text = "Spanish" ;
@@ -40,19 +44,23 @@ public class LanguageButton : Gtk.MenuButton {
         ara.clicked.connect (() => { lang.save_pref_language ("ara") ; }) ;
         spa.clicked.connect (() => { lang.save_pref_language ("spa") ; }) ;
         hin.clicked.connect (() => { lang.save_pref_language ("hin") ; }) ;
-
-        menu_list.add (eng) ;
+	nld.clicked.connect (() => { lang.save_pref_language ("nld") ; }) ;
+        tur.clicked.connect (() => { lang.save_pref_language ("tur") ; }) ;
+        
+	menu_list.add (eng) ;
         menu_list.add (chi_sim) ;
         menu_list.add (jpn) ;
         menu_list.add (tam) ;
+        menu_list.add (nld) ;
         menu_list.add (spa) ;
         menu_list.add (fra) ;
         menu_list.add (ara) ;
+        menu_list.add (tur) ;
         menu_list.add (tha) ;
         menu_list.add (rus) ;
         menu_list.add (hin) ;
-
-        scroll_view.add (menu_list) ;
+        
+	scroll_view.add (menu_list) ;
         scroll_view.show_all () ;
         var popover = new Gtk.Popover (null) ;
         popover.add (scroll_view) ;
