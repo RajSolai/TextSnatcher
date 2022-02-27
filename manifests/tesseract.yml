@@ -52,7 +52,7 @@ sources:
     sha256: e2c1ffdad8b30f26c45d4017a9183d3a7f9aa69e59918be4f88b126fac99ab2c
     dest: traineddata
   - type: file
-    url: https://github.com/tesseract-ocr/tessdata_best/raw/main/spa.traineddata
+    url: https://github.com/tesseract-ocr/tessdata_best/raw/main/nld.traineddata
     sha256: e2c1ffdad8b30f26c45d4017a9183d3a7f9aa69e59918be4f88b126fac99ab2c
     dest: traineddata
 
