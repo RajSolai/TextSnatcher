@@ -15,23 +15,23 @@ finish-args:
   - "--system-talk-name=org.freedesktop.Accounts"
 
 modules:
-   - name: libbsd
-     sources:
-       - type: archive
-         url: https://libbsd.freedesktop.org/releases/libbsd-0.9.1.tar.xz
-         sha256: 56d835742327d69faccd16955a60b6dcf30684a8da518c4eca0ac713b9e0a7a4
+  - name: libbsd
+    sources:
+      - type: archive
+        url: https://libbsd.freedesktop.org/releases/libbsd-0.9.1.tar.xz
+        sha256: 56d835742327d69faccd16955a60b6dcf30684a8da518c4eca0ac713b9e0a7a4
 
-   - name: imlib2
-     sources:
-       - type: git
-         url: https://github.com/kkoudev/imlib2.git
-         commit: 0f6782427dd4f49a4d1da03bec133e6a27f994a3
+  - name: imlib2
+    sources:
+      - type: git
+        url: https://github.com/kkoudev/imlib2.git
+        commit: 0f6782427dd4f49a4d1da03bec133e6a27f994a3
 
-   - name: scrot
-     sources:
-       - type: archive
-         url: https://github.com/resurrecting-open-source-projects/scrot/archive/refs/tags/1.7.tar.gz
-         sha256: e4ff764f93ea98018d46192c35bd34eeb577040ac6e217aa0d83b2a63d88f66b
+  - name: scrot
+    sources:
+      - type: archive
+        url: https://github.com/resurrecting-open-source-projects/scrot/archive/refs/tags/1.7.tar.gz
+        sha256: e4ff764f93ea98018d46192c35bd34eeb577040ac6e217aa0d83b2a63d88f66b
 
   - name: libportal
     buildsystem: meson
@@ -47,20 +47,21 @@ modules:
   - name: com.github.rajsolai.textsnatcher
     buildsystem: meson
     sources:
+      - type: dir
+        #url: https://github.com/RajSolai/TextSnatcher/archive/refs/tags/v1.0.1.tar.gz
+        #sha256: 29d39bcf4b0ed0b16f932cfd5553a280907df75d8332979f6504e7946ed5c356
+        path: .
+
+  - name: leptonica
+    rm-configure: true
+    config-opts:
+      - --disable-static
+    sources:
       - type: archive
-        url: https://github.com/RajSolai/TextSnatcher/archive/refs/tags/v1.0.1.tar.gz
-        sha256: 29d39bcf4b0ed0b16f932cfd5553a280907df75d8332979f6504e7946ed5c356
+        url: https://github.com/DanBloomberg/leptonica/releases/download/1.79.0/leptonica-1.79.0.tar.gz
+        sha256: 045966c9c5d60ebded314a9931007a56d9d2f7a6ac39cb5cc077c816f62300d8
 
-   - name: leptonica
-     rm-configure: true
-     config-opts:
-       - --disable-static
-     sources:
-       - type: archive
-         url: https://github.com/DanBloomberg/leptonica/releases/download/1.79.0/leptonica-1.79.0.tar.gz
-         sha256: 045966c9c5d60ebded314a9931007a56d9d2f7a6ac39cb5cc077c816f62300d8
-
-   - name: tesseract
+  - name: tesseract
     config-opts:
       - --disable-static
       - --disable-graphics
