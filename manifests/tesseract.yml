@@ -7,18 +7,10 @@ sources:
   - type: archive
     url: https://github.com/tesseract-ocr/tesseract/archive/4.1.1.tar.gz
     sha256: 2a66ff0d8595bff8f04032165e6c936389b1e5727c3ce5a27b3e059d218db1cb
-    #- type: file
-    #url: https://github.com/tesseract-ocr/tessdata_best/raw/main/tam.traineddata
-    #sha256: 4b9ce85987f629dd31eaf87443a1646452a43cdf91fcf05e017382ad595dcb9e
-    #dest: traineddata
   - type: file
     url: https://github.com/tesseract-ocr/tessdata_best/raw/main/eng.traineddata
     sha256: 8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba
     dest: traineddata
-    #- type: file
-    #url: https://github.com/tesseract-ocr/tessdata_best/raw/main/hin.traineddata
-    #sha256: bd2e65a2184af08a167b0be2439e91fa5edbc4394399ca2f692b843ae26e78d6
-    #dest: traineddata
   - type: file
     url: https://github.com/tesseract-ocr/tessdata_best/raw/main/jpn.traineddata
     sha256: 36bdf9ac823f5911e624c30d0553e890b8abc7c31a65b3ef14da943658c40b79
@@ -31,10 +23,6 @@ sources:
     url: https://github.com/tesseract-ocr/tessdata_best/raw/main/fra.traineddata
     sha256: 907743d98915c91a3906dfbf6e48b97598346698fe53aaa797e1a064ffcac913
     dest: traineddata
-    #- type: file
-    #url: https://github.com/tesseract-ocr/tessdata_best/raw/main/tha.traineddata
-    #sha256: ee8adab6dc69eb8df3d3c8307ae8295471b7bd7d86a06d9267aa8f479b064eac
-    #dest: traineddata
   - type: file
     url: https://github.com/tesseract-ocr/tessdata_best/raw/main/ara.traineddata
     sha256: ab9d157d8e38ca00e7e39c7d5363a5239e053f5b0dbdb3167dde9d8124335896
@@ -55,15 +43,17 @@ sources:
     url: https://github.com/tesseract-ocr/tessdata_best/raw/main/nld.traineddata
     sha256: 92e7a1ad4bf8082e268de57c7823316ec024935702c6ed2a1e473b3a071aa733 
     dest: traineddata
+  - type: file
+    url: https://github.com/tesseract-ocr/tessdata_best/raw/main/deu.traineddata
+    sha256: 8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e
+    dest: traineddata
 
 post-install:
-    #- install -p -D -m 0644 "traineddata"/tam.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/eng.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
-    #- install -p -D -m 0644 "traineddata"/hin.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/jpn.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
+  - install -p -D -m 0644 "traineddata"/deu.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/rus.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/fra.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
-    #- install -p -D -m 0644 "traineddata"/tha.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/ara.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/chi_sim.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/spa.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
