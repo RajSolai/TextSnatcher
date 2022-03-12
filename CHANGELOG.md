@@ -3,7 +3,7 @@ TextSnatcher Gtk App's Version Changelog.
 
 ## v2.0.0 Major Release [13-03-2022]
 ### Added
-- Scort as screenshot engine for x11 systems.
+- Scrot as screenshot engine for X11 systems.
 - Option Screen after SnatchNow action.
 - Option to use Image from Clipboard.
 - German, Dutch and Turkish Language Support added.
@@ -11,7 +11,7 @@ TextSnatcher Gtk App's Version Changelog.
 ### Removed
 - Tamil, Thai and Hindi Language Support.
 
-## v1.0.1 libportal Implementaion [02-02-2022]
+## v1.0.1 libportal Implementation [02-02-2022]
 ### Added
 - libportal-0.5 based screenshot backend.
 
