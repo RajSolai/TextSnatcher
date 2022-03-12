@@ -42,7 +42,8 @@ class TesseractTrigger : Object {
             info = portal.open_file.end (res) ;
             Variant uris = info.lookup_value ("uris", VariantType.STRING_ARRAY) ;
             string[] files = uris as string[] ;
-            string lead_file = files[0] ;
+            string lead_file = "\'"+files[0].substring(7).replace ("%20", " ")+"\'";
+            print ("file is "+lead_file);
             read_image.begin (lead_file, (obj, res) => {
                 print ("Reading file from chooser") ;
             }) ;
