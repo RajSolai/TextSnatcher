@@ -1,5 +1,5 @@
 class HomeScreen : Gtk.EventBox {
-    public Gtk.Label title_label;
+    public Gtk.Label title_label ;
     public HomeScreen () {
         var is_select_dialog_opened = false ;
         var tesseract_trigger = new TesseractTrigger () ;
@@ -15,15 +15,15 @@ class HomeScreen : Gtk.EventBox {
 
         start_button.clicked.connect (() => {
             string arg = Environment.get_variable ("XDG_SESSION_TYPE") ;
-	    goto_select_screen ();
+            goto_select_screen () ;
         }) ;
         main_box.orientation = Gtk.Orientation.VERTICAL ;
         vbox.pack_start (title_label, true, true, 5) ;
         vbox.pack_start (start_button, true, true, 5) ;
         main_box.add (vbox) ;
-        //main_box.show_all () ;
+        // main_box.show_all () ;
         add (main_box) ;
     }
 
-    public signal void goto_select_screen();
+    public signal void goto_select_screen () ;
 }

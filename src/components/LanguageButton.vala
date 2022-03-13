@@ -20,8 +20,8 @@ public class LanguageButton : Gtk.MenuButton {
         var deu = new Gtk.ModelButton () ;
 
         deu.text = "German" ;
-	nld.text = "Dutch" ;
-	tur.text = "Turkish" ;
+        nld.text = "Dutch" ;
+        tur.text = "Turkish" ;
         eng.text = "English" ;
         spa.text = "Spanish" ;
         chi_sim.text = "Chinese (Simplified)" ;
@@ -38,10 +38,10 @@ public class LanguageButton : Gtk.MenuButton {
         rus.clicked.connect (() => { lang.save_pref_language ("rus") ; }) ;
         ara.clicked.connect (() => { lang.save_pref_language ("ara") ; }) ;
         spa.clicked.connect (() => { lang.save_pref_language ("spa") ; }) ;
-	nld.clicked.connect (() => { lang.save_pref_language ("nld") ; }) ;
+        nld.clicked.connect (() => { lang.save_pref_language ("nld") ; }) ;
         tur.clicked.connect (() => { lang.save_pref_language ("tur") ; }) ;
-        
-	menu_list.add (eng) ;
+
+        menu_list.add (eng) ;
         menu_list.add (chi_sim) ;
         menu_list.add (jpn) ;
         menu_list.add (nld) ;
@@ -50,8 +50,8 @@ public class LanguageButton : Gtk.MenuButton {
         menu_list.add (ara) ;
         menu_list.add (tur) ;
         menu_list.add (rus) ;
-        
-	scroll_view.add (menu_list) ;
+
+        scroll_view.add (menu_list) ;
         scroll_view.show_all () ;
         var popover = new Gtk.Popover (null) ;
         popover.add (scroll_view) ;

@@ -1,7 +1,7 @@
 class SelectPictureScreen : Gtk.EventBox {
-	TesseractTrigger tesseract_trigger;
+    TesseractTrigger tesseract_trigger ;
     public SelectPictureScreen () {
-	tesseract_trigger = new TesseractTrigger ();
+        tesseract_trigger = new TesseractTrigger () ;
         var pic_dialog_title = new Gtk.Label ("Where can I find the Image ?") ;
         var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) ;
         var cancel_btn = new Gtk.Button.with_label ("Cancel") ;
@@ -37,8 +37,6 @@ class SelectPictureScreen : Gtk.EventBox {
         main_box.add (cancel_btn) ;
         add (main_box) ;
     }
-
-    
 
     public signal void cancel_signal () ;
     public signal void perform_signal (string image_source) ;

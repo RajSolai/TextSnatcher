@@ -42,7 +42,7 @@ class TesseractTrigger : Object {
             info = portal.open_file.end (res) ;
             Variant uris = info.lookup_value ("uris", VariantType.STRING_ARRAY) ;
             string[] files = uris as string[] ;
-            string lead_file = "\'"+files[0].substring(7).replace ("%20", " ")+"\'";
+            string lead_file = "\'" + files[0].substring (7).replace ("%20", " ") + "\'" ;
             read_image.begin (lead_file, (obj, res) => {
                 print ("Reading file from chooser") ;
             }) ;
@@ -98,7 +98,7 @@ class TesseractTrigger : Object {
                 clipboard.request_image (clipboard_callback) ;
             } else {
                 print ("no image found in clipboard") ;
-                label.label = "No Image found in Clipboard";
+                label.label = "No Image found in Clipboard" ;
             }
         } else {
             if (session == "x11") {
