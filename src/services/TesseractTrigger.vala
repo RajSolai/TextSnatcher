@@ -43,7 +43,6 @@ class TesseractTrigger : Object {
             Variant uris = info.lookup_value ("uris", VariantType.STRING_ARRAY) ;
             string[] files = uris as string[] ;
             string lead_file = "\'"+files[0].substring(7).replace ("%20", " ")+"\'";
-            print ("file is "+lead_file);
             read_image.begin (lead_file, (obj, res) => {
                 print ("Reading file from chooser") ;
             }) ;
@@ -95,11 +94,10 @@ class TesseractTrigger : Object {
         if (type == "file") {
             accept_files_fromchooser () ;
         } else if (type == "clip") {
-            print ("to implement") ;
             if (clipboard.wait_is_image_available ()) {
                 clipboard.request_image (clipboard_callback) ;
             } else {
-                print ("no image found") ;
+                print ("no image found in clipboard") ;
                 label.label = "No Image found in Clipboard";
             }
         } else {
@@ -126,7 +124,7 @@ class TesseractTrigger : Object {
             DataOutputStream fos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION)) ;
             pixbuf.save_to_stream_async.begin (fos, "png", null, () => {
                 read_image.begin (scrot_path, (obj, res) => {
-                    print ("Reading shit") ;
+                    print ("Reading File") ;
                 }) ;
             }) ;
         } catch (Error err) {
@@ -139,7 +137,6 @@ class TesseractTrigger : Object {
         try {
             uri = portal.take_screenshot.end (res) ;
             string path = GLib.Filename.from_uri (uri, null) ;
-            print (path) ;
             read_image.begin (path, (obj, res) => {
                 print ("Taking Screenshot") ;
             }) ;
