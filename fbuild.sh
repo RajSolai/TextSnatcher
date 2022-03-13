@@ -1,1 +1,2 @@
-flatpak-builder build gnomeapp.yml --user --force-clean --install
+flatpak-builder build --install --user --force-clean ./gnomeapp.yml
+
