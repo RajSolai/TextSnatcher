@@ -24,6 +24,16 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+   <release version="2.0.0" date="2022-03-13">
+      <description>
+        <p>v2.0.0</p>
+        <ul>
+          <li>scrot based screenshot backend for x11.</li>
+          <li>Option to use Image from Clipboard/Files.</li>
+          <li>German, Dutch and Turkish Language Support added.</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.1" date="2022-02-02">
       <description>
         <p>v1.0.1</p>
