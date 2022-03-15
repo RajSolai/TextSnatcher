@@ -2,7 +2,7 @@
 project (
     'com.github.rajsolai.textsnatcher',
     'vala', 'c',
-    version: '1.0.1'
+    version: '2.0'
 )
 
 # Translation module
