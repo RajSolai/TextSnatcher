@@ -5,7 +5,7 @@
 <img src="./data/icons/com.github.rajsolai.textsnatcher.svg" height="110px" />
 <h1>TextSnatcher</h1>
 <p>Copy Text from Images with ease, Perform OCR operations in seconds.</p>
-<img alt="TextSnatcher OCR App for Linux" src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-default.png"/>
+<img alt="TextSnatcher OCR App for Linux" src="https://raw.githubusercontent.com/RajSolai/TextSnatcher/master/data/screenshots/snap-default.png"/></br>
 <a href="https://www.producthunt.com/posts/textsnatcher?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-textsnatcher" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=344401&theme=light" alt="TextSnatcher - How&#0032;to&#0032;copy&#0032;text&#0032;from&#0032;images&#0044;&#0032;answer&#0032;is&#0032;TextSnatcher | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 </div>
 
