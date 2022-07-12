@@ -12,5 +12,6 @@ sources = files (
     'screens/HomeScreen.vala',
     'screens/SelectPictureScreen.vala',
     'services/LanguageService.vala',
+    'services/DetectInterfaceStyle.vala',
     'services/TesseractTrigger.vala'
 )
