@@ -42,18 +42,18 @@ public class Application : Gtk.Application {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         ) ;
 
-        var granite_settings = Granite.Settings.get_default () ;
-        var gtk_settings = Gtk.Settings.get_default () ;
+        //  var granite_settings = Granite.Settings.get_default () ;
+        //  var gtk_settings = Gtk.Settings.get_default () ;
 
-        if (granite_settings != null) {
-            gtk_settings.gtk_application_prefer_dark_theme =
-                granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK ;
+        //  if (granite_settings != null) {
+        //      gtk_settings.gtk_application_prefer_dark_theme =
+        //          granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK ;
 
-            granite_settings.notify["prefers-color-scheme"].connect (() => {
-                gtk_settings.gtk_application_prefer_dark_theme =
-                    granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK ;
-            }) ;
-        }
+        //      granite_settings.notify["prefers-color-scheme"].connect (() => {
+        //          gtk_settings.gtk_application_prefer_dark_theme =
+        //              granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK ;
+        //      }) ;
+        //  }
 
         main_window = new MainWindow (this) ;
         add_window (main_window) ;
