@@ -1,0 +1,31 @@
+.h2 {
+    font-size: 24px;
+}
+
+header .header {
+    background-color: transparent;
+}
+
+.main-window {
+    background: #333;
+    color: #fff;
+}
+
+.start-button {
+    color: #fff;
+    background: #333;
+    box-shadow: #212124 0px 1px 4px;
+}
+
+.select-pic-box {
+    padding: 1rem;
+}
+
+.header {
+    padding: 0.2rem;
+}
+
+.dialog-title {
+    font-weight: bold;
+    font-size: 18px;
+}
