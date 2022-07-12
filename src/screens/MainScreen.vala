@@ -1,6 +1,7 @@
 public class MainScreen : Gtk.EventBox {
     TesseractTrigger tesseract_trigger ;
     public MainScreen () {
+        get_style_context ().add_class ("main-screen") ;
         tesseract_trigger = new TesseractTrigger () ;
         var main_stack = new Gtk.Stack () ;
         var home_screen = new HomeScreen () ;
