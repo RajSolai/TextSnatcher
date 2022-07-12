@@ -2,5 +2,6 @@
 <gresources>
 	<gresource prefix = "/com/github/rajsolai/TextSnatcher">
 		<file alias = "stylesheet.css">stylesheet.css</file>
+		<file alias = "stylesheet-dark.css">stylesheet-dark.css</file>
 	</gresource>
 </gresources>
