@@ -35,7 +35,18 @@ public class Application : Gtk.Application {
 
         // stylesheet
         var provider = new Gtk.CssProvider () ;
-        provider.load_from_resource ("/com/github/rajsolai/TextSnatcher/stylesheet.css") ;
+        
+
+        var interface_style = new DetectInterface () ;
+        var style = interface_style.getInterface();
+        print(style.length.to_string());
+
+        if (style.to_string().chomp() == "Dark"){
+            provider.load_from_resource ("/com/github/rajsolai/TextSnatcher/stylesheet-dark.css") ;
+        }else{
+            provider.load_from_resource ("/com/github/rajsolai/TextSnatcher/stylesheet.css") ;      
+        }
+
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
             provider,
