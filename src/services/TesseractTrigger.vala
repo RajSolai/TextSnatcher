@@ -7,33 +7,9 @@ class TesseractTrigger : Object {
     int stat ;
     Gdk.Display display = Gdk.Display.get_default () ;
     Gtk.Label label ;
-    //  Xdp.Portal portal ;
 
     construct {
-        //  portal = new Xdp.Portal () ;
         clipboard = Gtk.Clipboard.get_default (display) ;
-    }
-
-    public void accept_files_fromchooser () {
-        //  portal.open_file.begin (
-        //      null,
-        //      "Select an Image to perform OCR !",
-        //      null,
-        //      null,
-        //      null,
-        //      Xdp.OpenFileFlags.NONE,
-        //      null,
-        //      filechooser_callback
-        //  ) ;
-    }
-
-    async void save_shot_scrot () {
-        try {
-            Process.spawn_command_line_sync ("scrot -s -o " + scrot_path) ;
-            yield read_image (scrot_path) ;
-        } catch (Error e) {
-            print (e.message) ;
-        }
     }
 
     async void save_shot_mac () {
@@ -42,21 +18,6 @@ class TesseractTrigger : Object {
             yield read_image (scrot_path) ;
         } catch (Error e) {
             print (e.message) ;
-        }
-    }
-
-    void filechooser_callback (GLib.Object ? obj, GLib.AsyncResult res) {
-        GLib.Variant info ;
-        try {
-            //  info = portal.open_file.end (res) ;
-            //  Variant uris = info.lookup_value ("uris", VariantType.STRING_ARRAY) ;
-            //  string[] files = uris as string[] ;
-            //  string lead_file = "\'" + files[0].substring (7).replace ("%20", " ") + "\'" ;
-            //  read_image.begin (lead_file, (obj, res) => {
-            //      print ("Reading file from chooser") ;
-            //  }) ;
-        } catch (Error e) {
-            critical (e.message) ;
         }
     }
 
@@ -98,23 +59,6 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void get_screenshot (Gtk.Label label_widget, string type) {
-        string session = GLib.Environment.get_variable ("XDG_SESSION_TYPE") ;
-        if (type == "file") {
-            accept_files_fromchooser () ;
-        } else if (type == "clip") {
-            if (clipboard.wait_is_image_available ()) {
-                clipboard.request_image (clipboard_callback) ;
-            } else {
-                print ("no image found in clipboard") ;
-                label.label = "No Image found in Clipboard" ;
-            }
-        } else {
-            print(session);
-            yield save_shot_mac () ;
-        }
-    }
-
     void clipboard_callback (Gtk.Clipboard _, Gdk.Pixbuf pixbuf) {
         try {
 
@@ -133,22 +77,9 @@ class TesseractTrigger : Object {
         }
     }
 
-    public void save_shot (GLib.Object ? obj, GLib.AsyncResult res) {
-        //  string uri ;
-        //  try {
-        //      uri = portal.take_screenshot.end (res) ;
-        //      string path = GLib.Filename.from_uri (uri, null) ;
-        //      read_image.begin (path, (obj, res) => {
-        //          print ("Taking Screenshot") ;
-        //      }) ;
-        //  } catch (Error e) {
-        //      critical (e.message) ;
-        //  }
-    }
-
-    public async bool start_tess_process (Gtk.Label label_widget, string type) {
+    public async bool start_tess_process (Gtk.Label label_widget) {
         label = label_widget ;
-        yield get_screenshot (label_widget, type) ;
+        yield save_shot_mac () ;
 
         return true ;
     }
