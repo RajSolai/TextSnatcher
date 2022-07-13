@@ -3,7 +3,7 @@ public class MainScreen : Gtk.EventBox {
         var trigger = new TesseractTrigger () ;
         var main_box = new Gtk.Grid () ;
         var vbox = new VerticalBox (4) ;
-        var title_label = new Gtk.Label ("TextSnatcher") ;
+        var title_label = new Gtk.Label ("Drag anywhere !") ;
         main_box.column_homogeneous = true ;
         main_box.row_homogeneous = true ;
         main_box.margin = 10 ;
@@ -11,7 +11,6 @@ public class MainScreen : Gtk.EventBox {
         var start_button = new Gtk.Button.with_label ("Snatch Now !") ;
         start_button.get_style_context ().add_class ("start-button") ;
         start_button.clicked.connect (() => {
-            title_label.label = "Drag anywhere !" ;
             trigger.start_tess_process.begin (title_label, (obj, res) => {
                 print ("Process Done") ;
             }) ;
