@@ -4,10 +4,12 @@ public class MainWindow : Gtk.ApplicationWindow {
         var window_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) ;
         var main_screen = new MainScreen () ;
         var header_bar = new CustomHeaderBar () ;
-        default_height = 150 ;
+        default_height = 250 ;
         default_width = 300 ;
+        show_menubar = true;
         get_style_context ().add_class ("rounded") ;
         get_style_context ().add_class ("main-window") ;
+        set_title("TextSnatcher");
         //  window_box.add (header_bar) ;
         window_box.add (main_screen) ;
         window_handle.add (window_box) ;

@@ -3,6 +3,7 @@ public class MainScreen : Gtk.EventBox {
         var trigger = new TesseractTrigger () ;
         var main_box = new Gtk.Grid () ;
         var vbox = new VerticalBox (4) ;
+        var language_button = new LanguageButton () ;
         var title_label = new Gtk.Label ("Drag anywhere !") ;
         main_box.column_homogeneous = true ;
         main_box.row_homogeneous = true ;
@@ -16,8 +17,9 @@ public class MainScreen : Gtk.EventBox {
             }) ;
         }) ;
         main_box.orientation = Gtk.Orientation.VERTICAL ;
-        vbox.pack_start (title_label, true, true, 5) ;
-        vbox.pack_start (start_button, true, true, 5) ;
+        vbox.pack_start (title_label, false, true, 60) ;
+        vbox.pack_start (start_button, false, true, 5) ;
+        vbox.pack_start (language_button, false, true, 5) ;
         main_box.add (vbox) ;
         main_box.show_all () ;
         add (main_box) ;
