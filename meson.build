@@ -2,7 +2,7 @@
 project (
     'com.github.rajsolai.textsnatcher',
     'vala', 'c',
-    version: '2.0'
+    version: '1.0'
 )
 
 # Translation module
@@ -36,12 +36,17 @@ as_resources = gnome.compile_resources (
 
 # Executable
 executable (
-    meson.project_name (),
+    'TextSnatcher',
     sources,
     as_resources,
     dependencies: dependencies,
     install: true
 )
+
+install_data('app.icns', install_dir : 'Contents/Resources')
+install_data('Info.plist', install_dir : 'Contents')
+install_data('TextSnatcher.sh', install_dir : 'Contents/MacOS')
+
 
 subdir ('data')
 subdir ('po')
