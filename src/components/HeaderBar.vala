@@ -1,15 +1,33 @@
-public class CustomHeaderBar : Hdy.HeaderBar {
+public class CustomHeaderBar : Gtk.Box {
+    private LanguageButtonPopover language_button_popover;
+    private Gtk.MenuButton language_button;
+    private AboutButton about_button;
+    private Adw.HeaderBar headerbar;
 
-    public CustomHeaderBar () {
-        var language_button = new LanguageButton () ;
-        var about_button = new AboutButton () ;
-        get_style_context ().add_class ("default-decoration") ;
-        get_style_context ().add_class ("flat") ;
-        get_style_context ().add_class ("header") ;
-        pack_start (language_button) ;
-        pack_end (about_button) ;
-        decoration_layout = "close:" ;
-        title = "TextSnatcher" ;
-        set_show_close_button (true) ;
+    construct {
+        language_button_popover = new LanguageButtonPopover ();
+        language_button = new Gtk.MenuButton () {
+            icon_name = "preferences-desktop-locale",
+            tooltip_text = "Languages",
+            popover = language_button_popover
+        };
+
+        about_button = new AboutButton ();
+
+        headerbar = new Adw.HeaderBar () {
+            hexpand = true
+        };
+        headerbar.set_centering_policy (Adw.CenteringPolicy.LOOSE);
+        headerbar.decoration_layout = "close:maximize";
+        headerbar.show_end_title_buttons = false;
+
+        //headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        //headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+        headerbar.add_css_class ("header");
+
+        headerbar.pack_start (language_button);
+        headerbar.pack_end (about_button);
+
+        append (headerbar);
     }
 }

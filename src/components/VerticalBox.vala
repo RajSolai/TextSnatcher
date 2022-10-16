@@ -3,6 +3,6 @@ class VerticalBox : Gtk.Box {
         Object (
             orientation: Gtk.Orientation.VERTICAL,
             spacing: space
-        ) ;
+        );
     }
 }

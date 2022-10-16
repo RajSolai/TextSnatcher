@@ -2,7 +2,7 @@
     font-size: 24px;
 }
 
-header .header {
+.header {
     background-color: transparent;
 }
 
@@ -18,3 +18,5 @@ header .header {
     font-weight: bold;
     font-size: 18px;
 }
+
+

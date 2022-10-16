@@ -1,9 +1,9 @@
 app-id: com.github.rajsolai.textsnatcher
 
 runtime: org.gnome.Platform
-runtime-version: "41"
+runtime-version: "43"
 base: io.elementary.BaseApp
-base-version: "juno-21.08"
+base-version: "juno-22.08"
 sdk: org.gnome.Sdk
 command: com.github.rajsolai.textsnatcher
 
@@ -37,12 +37,12 @@ modules:
     buildsystem: meson
     builddir: true
     config-opts:
-      - "-Dbackends=gtk3"
+      - "-Dbackends=gtk4"
       - "-Ddocs=false"
     sources:
       - type: archive
-        url: https://github.com/flatpak/libportal/releases/download/0.5/libportal-0.5.tar.xz
-        sha256: d8c8cb18a34e5eeb26a39c94044c955995b01de0e139caac5e18c076cf821b3b
+        url: https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz
+        sha256: 88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566
 
   - name: com.github.rajsolai.textsnatcher
     buildsystem: meson

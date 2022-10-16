@@ -1,29 +1,49 @@
-class HomeScreen : Gtk.EventBox {
-    public Gtk.Label title_label ;
+class HomeScreen : Gtk.Box {
+    public Gtk.Label title_label;
+
     public HomeScreen () {
-        var is_select_dialog_opened = false ;
-        var tesseract_trigger = new TesseractTrigger () ;
-        var main_box = new Gtk.Grid () ;
-        var vbox = new VerticalBox (4) ;
-        title_label = new Gtk.Label ("TextSnatcher") ;
-        main_box.column_homogeneous = true ;
-        main_box.row_homogeneous = true ;
-        main_box.margin = 10 ;
-        title_label.get_style_context ().add_class ("h2") ;
-        var start_button = new Gtk.Button.with_label ("Snatch Now !") ;
-        start_button.get_style_context ().add_class ("start-button") ;
+        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            homogeneous = true,
+            margin_top = 10,
+            margin_bottom = 10,
+            margin_start = 10,
+            margin_end = 10,
+            hexpand = true
+        };
+        var vbox = new VerticalBox (4);
+        title_label = new Gtk.Label ("TextSnatcher") {
+            margin_top = 5,
+            margin_bottom = 5,
+            margin_start = 5,
+            margin_end = 5,
+            valign = Gtk.Align.FILL,
+            vexpand = true
+        };
+        var start_button = new Gtk.Button.with_label ("Snatch Now!") {
+            margin_top = 5,
+            margin_bottom = 5,
+            margin_start = 5,
+            margin_end = 5,
+            valign = Gtk.Align.FILL,
+            vexpand = true
+        };
+
+        title_label.add_css_class ("h2");
+        //title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        //start_button.add_css_class ("start-button");
 
         start_button.clicked.connect (() => {
-            string arg = Environment.get_variable ("XDG_SESSION_TYPE") ;
-            goto_select_screen () ;
-        }) ;
-        main_box.orientation = Gtk.Orientation.VERTICAL ;
-        vbox.pack_start (title_label, true, true, 5) ;
-        vbox.pack_start (start_button, true, true, 5) ;
-        main_box.add (vbox) ;
-        // main_box.show_all () ;
-        add (main_box) ;
+            string arg = Environment.get_variable ("XDG_SESSION_TYPE");
+            goto_select_screen ();
+        });
+
+        vbox.append (title_label);
+        vbox.append (start_button);
+
+        main_box.append (vbox);
+
+        append (main_box);
     }
 
-    public signal void goto_select_screen () ;
+    public signal void goto_select_screen ();
 }
