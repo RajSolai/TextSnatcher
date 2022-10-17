@@ -19,4 +19,6 @@
     font-size: 18px;
 }
 
-
+window {
+    border-radius: 6px;
+}
