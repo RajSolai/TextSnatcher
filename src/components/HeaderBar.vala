@@ -18,8 +18,9 @@ public class CustomHeaderBar : Gtk.Box {
             hexpand = true
         };
         headerbar.set_centering_policy (Adw.CenteringPolicy.LOOSE);
-        headerbar.decoration_layout = "close:maximize";
-        headerbar.show_end_title_buttons = false;
+        if (!Application.IS_ON_PANTHEON) {
+            headerbar.decoration_layout = "close:";
+        }
 
         //headerbar.add_css_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
         //headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);

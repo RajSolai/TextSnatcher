@@ -29,8 +29,6 @@ class HomeScreen : Gtk.Box {
         };
 
         title_label.add_css_class ("h2");
-        //title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
-        //start_button.add_css_class ("start-button");
 
         start_button.clicked.connect (() => {
             string arg = Environment.get_variable ("XDG_SESSION_TYPE");

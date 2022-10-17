@@ -19,8 +19,14 @@
  * Authored by: Solai Raj <msraj085@gmail.com>
  */
 
-public class TextSnatcher.Application : Gtk.Application {
+public class Application : Gtk.Application {
     public MainWindow main_window;
+
+    public static bool IS_ON_PANTHEON {
+        get {
+            return Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon";
+        }
+    }
 
     public Application () {
         Object (
@@ -65,7 +71,6 @@ public class TextSnatcher.Application : Gtk.Application {
         add_window (main_window);
 
         main_window.present ();
-
     }
 
     public static int main (string[] args) {

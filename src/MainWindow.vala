@@ -1,4 +1,4 @@
-public class TextSnatcher.MainWindow : Gtk.ApplicationWindow {
+public class MainWindow : Gtk.ApplicationWindow {
     construct {
         set_default_size (300, 150);
 
