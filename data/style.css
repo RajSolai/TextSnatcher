@@ -2,7 +2,7 @@
     font-size: 24px;
 }
 
-header .header {
+.header {
     background-color: transparent;
 }
 
@@ -17,4 +17,8 @@ header .header {
 .dialog-title {
     font-weight: bold;
     font-size: 18px;
+}
+
+window {
+    border-radius: 6px;
 }

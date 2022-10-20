@@ -1,31 +1,24 @@
-class TsAboutDialog : Gtk.AboutDialog {
+class TsAboutDialog : Object {
+    Gtk.AboutDialog about_dialog;
+
     construct {
-        set_destroy_with_parent (true) ;
-        set_modal (true) ;
+        about_dialog = new Gtk.AboutDialog ();
 
-        artists = null ;
-        authors = { "Solai Raj (RajSolai)", "msraj085@gmail.com" } ;
-        documenters = null ;
-        translator_credits = null ;
-        logo_icon_name = "com.github.rajsolai.textsnatcher" ;
+        about_dialog.set_destroy_with_parent (true);
+        about_dialog.set_modal (true);
 
-        program_name = "TextSnatcher" ;
-        comments = "Snatch Text with a Drag" ;
-        copyright = null ;
-        version = "2.0" ;
+        about_dialog.authors = { "Solai Raj (RajSolai)", "msraj085@gmail.com" };
+        about_dialog.logo_icon_name = "com.github.rajsolai.textsnatcher";
 
-        license = null ;
-        wrap_license = true ;
+        about_dialog.program_name = "TextSnatcher";
+        about_dialog.comments = "Snatch Text with a Drag";
+        about_dialog.version = "2.0";
 
-        website = "https://github.com/RajSolai/TextSnatcher" ;
-        website_label = "Star TextSnatcher on Github !" ;
+        about_dialog.license_type = Gtk.License.GPL_3_0;
 
-        response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT) {
-                hide () ;
-            }
-        }) ;
+        about_dialog.website = "https://github.com/RajSolai/TextSnatcher";
+        about_dialog.website_label = "Star TextSnatcher on Github!";
 
-        present () ;
+        about_dialog.present ();
     }
 }

@@ -1,23 +1,24 @@
 class TesseractTrigger : Object {
-    string out_path = GLib.Environment.get_home_dir () + "/.textsnatcher" ;
-    string scrot_path = GLib.Environment.get_tmp_dir () + "/textshot.png" ;
-    Gtk.Clipboard clipboard ;
-    string res ;
-    string err ;
-    int stat ;
-    Gdk.Display display = Gdk.Display.get_default () ;
-    Gtk.Label label ;
-    Xdp.Portal portal ;
+    private Gdk.Display display = Gdk.Display.get_default ();
+    private Gdk.Clipboard clipboard;
+    private Gtk.Label status_label;
+    private Xdp.Portal portal;
+
+    string out_path = Environment.get_home_dir () + "/.textsnatcher";
+    string scrot_path = Environment.get_tmp_dir () + "/textshot.png";
+    string res;
+    string err;
+    int stat;
 
     construct {
-        portal = new Xdp.Portal () ;
-        clipboard = Gtk.Clipboard.get_default (display) ;
+        portal = new Xdp.Portal ();
+        clipboard = display.get_clipboard ();
     }
 
     public void accept_files_fromchooser () {
         portal.open_file.begin (
             null,
-            "Select an Image to perform OCR !",
+            "Select an image to perform OCR",
             null,
             null,
             null,
@@ -32,19 +33,19 @@ class TesseractTrigger : Object {
             Process.spawn_command_line_sync ("scrot -s -o " + scrot_path) ;
             yield read_image (scrot_path) ;
         } catch (Error e) {
-            print (e.message) ;
+            print ("%s\n", e.message);
         }
     }
 
-    void filechooser_callback (GLib.Object ? obj, GLib.AsyncResult res) {
-        GLib.Variant info ;
+    void filechooser_callback (Object? obj, AsyncResult res) {
+        Variant info;
         try {
             info = portal.open_file.end (res) ;
             Variant uris = info.lookup_value ("uris", VariantType.STRING_ARRAY) ;
             string[] files = uris as string[] ;
             string lead_file = "\'" + files[0].substring (7).replace ("%20", " ") + "\'" ;
             read_image.begin (lead_file, (obj, res) => {
-                print ("Reading file from chooser") ;
+                print ("Reading file from chooser\n");
             }) ;
         } catch (Error e) {
             critical (e.message) ;
@@ -54,7 +55,7 @@ class TesseractTrigger : Object {
     async void read_image (string file_path) {
         var lang_service = new LanguageService () ;
         string lang = lang_service.get_pref_language () ;
-        label.label = "Reading Image" ;
+        status_label.label = "Reading Image";
         Idle.add (read_image.callback) ;
         yield ;
         try {
@@ -63,13 +64,13 @@ class TesseractTrigger : Object {
             if (stat == 0) {
                 copy_to_clipboard () ;
             } else {
-                print ("Error is " + err + " status is " + stat.to_string ()) ;
-                label.label = "Error Reading Image" ;
+                print ("Error is: %s, status is: %s\n", err, stat.to_string ());
+                status_label.label = "Error Reading Image";
             }
         } catch (Error e) {
             critical (e.message) ;
             if (e.code == 8) {
-                label.label = "Dependencies Not Found" ;
+                status_label.label = "Dependencies Not Found";
             }
         }
     }
@@ -79,27 +80,27 @@ class TesseractTrigger : Object {
             string text_output ;
             FileUtils.get_contents (out_path + ".txt", out text_output) ;
             if (text_output.length > 0) {
-                clipboard.set_text (text_output, text_output.length) ;
-                label.label = "Checkout Clipboard :)" ;
+                clipboard.set_text (text_output);
+                status_label.label = "Checkout Clipboard :)";
             } else {
-                label.label = "Error Reading Image" ;
+                status_label.label = "Error Reading Image";
             }
         } catch (Error e) {
-            print (e.message) ;
+            print ("%s\n", e.message);
         }
     }
 
     public async void get_screenshot (Gtk.Label label_widget, string type) {
-        string session = GLib.Environment.get_variable ("XDG_SESSION_TYPE") ;
+        string session = Environment.get_variable ("XDG_SESSION_TYPE");
         if (type == "file") {
             accept_files_fromchooser () ;
         } else if (type == "clip") {
-            if (clipboard.wait_is_image_available ()) {
-                clipboard.request_image (clipboard_callback) ;
-            } else {
-                print ("no image found in clipboard") ;
-                label.label = "No Image found in Clipboard" ;
-            }
+            /*if (clipboard.wait_is_image_available ()) {
+                clipboard.request_image (clipboard_callback); // FIXME: Check if there is a implementation for this in GTK4
+            } else {*/
+                print ("No image found in clipboard\n");
+                status_label.label = "No Image found in Clipboard";
+            //}
         } else {
             if (session == "x11") {
                 yield save_shot_scrot () ;
@@ -114,7 +115,7 @@ class TesseractTrigger : Object {
         }
     }
 
-    void clipboard_callback (Gtk.Clipboard _, Gdk.Pixbuf pixbuf) {
+    void clipboard_callback (Gdk.Clipboard _, Gdk.Pixbuf pixbuf) {
         try {
 
             File file = File.new_for_path (Path.build_filename (scrot_path)) ;
@@ -124,7 +125,7 @@ class TesseractTrigger : Object {
             DataOutputStream fos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION)) ;
             pixbuf.save_to_stream_async.begin (fos, "png", null, () => {
                 read_image.begin (scrot_path, (obj, res) => {
-                    print ("Reading File") ;
+                    print ("Reading File\n");
                 }) ;
             }) ;
         } catch (Error err) {
@@ -132,13 +133,13 @@ class TesseractTrigger : Object {
         }
     }
 
-    public void save_shot (GLib.Object ? obj, GLib.AsyncResult res) {
+    public void save_shot (Object? obj, AsyncResult res) {
         string uri ;
         try {
             uri = portal.take_screenshot.end (res) ;
-            string path = GLib.Filename.from_uri (uri, null) ;
+            string path = Filename.from_uri (uri, null);
             read_image.begin (path, (obj, res) => {
-                print ("Taking Screenshot") ;
+                print ("Taking Screenshot\n");
             }) ;
         } catch (Error e) {
             critical (e.message) ;
@@ -146,7 +147,7 @@ class TesseractTrigger : Object {
     }
 
     public async bool start_tess_process (Gtk.Label label_widget, string type) {
-        label = label_widget ;
+        status_label = label_widget;
         yield get_screenshot (label_widget, type) ;
 
         return true ;

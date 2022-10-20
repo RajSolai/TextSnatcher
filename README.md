@@ -53,24 +53,29 @@ https://user-images.githubusercontent.com/54436424/152921736-c9567c9d-0afa-4c09-
 
 Ensure you have these dependencies installed
 
-### Runtime Dependency
+### Runtime dependencies
 
--   scrot
--   tesseract-ocr
--   tesseract language data
-    [arch repos](https://archlinux.org/packages/community/x86_64/tesseract)
-    [debian repos](https://packages.debian.org/search?keywords=tesseract-ocr)
+-   Scrot `scrot`
+-   Tesseract `tesseract-ocr`
+-   Tesseract language data
+    [(arch](https://archlinux.org/packages/community/x86_64/tesseract) and 
+    [debian)](https://packages.debian.org/search?keywords=tesseract-ocr)
 
-### Buildtime Dependency
+### Buildtime dependencies
 
--   granite
--   gtk+-3.0
--   gobject-2.0
--   gdk-pixbuf-2.0
--   libhandy-1
--   libportal-0.5
+-   Granite 7 `granite-7`
+-   GTK4 `gtk4`
+-   Libadwaita (>= 1.0) `libadwaita-1`
+-   GObject `gobject-2.0`
+-   GDK Pixbuf `gdk-pixbuf-2.0`
+-   Libportal `libportal-0.6`
+-   Meson `meson`
+-   Ninja `ninja-build`
+
 
 ## Install, build and run
+
+### Global installation:
 
 ```bash
 # clone repository
@@ -78,15 +83,29 @@ git clone https://github.com/RajSolai/TextSnatcher.git TextSnatcher
 # cd to dir
 cd TextSnatcher
 # run meson
-meson build --prefix=/usr
-# cd to build, build and test
-cd build
-sudo ninja install && com.github.rajsolai.textsnatcher
+meson builddir
+meson configure builddir -Dprefix="/usr"
+# build and test
+sudo ninja -C builddir install && com.github.rajsolai.textsnatcher
+```
+
+### Local installation:
+
+```bash
+# clone repository
+git clone https://github.com/RajSolai/TextSnatcher.git TextSnatcher
+# cd to dir
+cd TextSnatcher
+# run meson
+meson builddir
+meson configure builddir -Dprefix="$(pwd)/builddir"
+# build and test
+ninja -C builddir install && ./builddir/bin/com.github.rajsolai.textsnatcher
 ```
 
 ## Inspirations
 
--   ReadMe: https://github.com/alainm23/planner
+-   Readme: https://github.com/alainm23/planner
 -   Application Structure: https://github.com/alcadica/develop
 -   TextSniper (MacOS Application)
 

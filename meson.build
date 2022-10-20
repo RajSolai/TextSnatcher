@@ -1,51 +1,50 @@
 # Project name, programming language and version
 project (
-    'com.github.rajsolai.textsnatcher',
-    'vala', 'c',
-    version: '2.0'
+    'textsnatcher',
+    ['vala', 'c'],
+    version: '2.0',
+    meson_version: '>= 0.59.0'
 )
 
-# Translation module
+# Import modules
 i18n = import ('i18n')
 gnome = import ('gnome')
 
+# Constants
+PROJECT_RDNN_NAME = 'com.github.rajsolai.textsnatcher'
+
 # Project arguments
 add_project_arguments (
-    '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()),
+    '-DGETTEXT_PACKAGE="@0@"'.format (PROJECT_RDNN_NAME),
     language: 'c'
 )
 
 # Listing dependencies
 dependencies = [
-    dependency('granite'),
+    dependency('libadwaita-1'),
+    dependency('granite-7'),
     dependency('gobject-2.0'),
-    dependency('libhandy-1'),
-    dependency('libportal'),
+    dependency('libportal', version: '>= 0.6'),
     dependency('gdk-pixbuf-2.0'),
     dependency('glib-2.0'),
-    dependency('gtk+-3.0')
+    dependency('gtk4')
 ]
 
-subdir ('src')
-
-# for resources
+# Compile resources
 as_resources = gnome.compile_resources (
-    'as-resources', 'data/' + meson.project_name() + '.gresource.xml',
+    'as-resources', 'data/' + PROJECT_RDNN_NAME + '.gresource.xml',
     source_dir: 'data',
     c_name: 'as'
 )
 
-
-# Executable
-executable (
-    meson.project_name (),
-    sources,
-    as_resources,
-    dependencies: dependencies,
-    install: true
-)
-
+subdir ('src')
 subdir ('data')
 subdir ('po')
 
 meson.add_install_script ('meson/post_install.py')
+
+# gnome.post_install(
+#   glib_compile_schemas: true,
+#   gtk_update_icon_cache: true,
+#   update_desktop_database: true,
+# )

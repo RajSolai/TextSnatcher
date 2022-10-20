@@ -1,4 +1,6 @@
-/build
+/builddir
+/export
+/repo
 .travis.yml
 /.flatpak-builder
 # gnomeapp.yml
