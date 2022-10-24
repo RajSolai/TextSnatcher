@@ -10,7 +10,7 @@ class HomeScreen : Gtk.EventBox {
         main_box.row_homogeneous = true ;
         main_box.margin = 10 ;
         title_label.get_style_context ().add_class ("h2") ;
-        var start_button = new Gtk.Button.with_label ("Snatch Now !") ;
+        var start_button = new Gtk.Button.with_label ("Snatch Now!") ;
         start_button.get_style_context ().add_class ("start-button") ;
 
         start_button.clicked.connect (() => {

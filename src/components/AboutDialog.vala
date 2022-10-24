@@ -10,7 +10,7 @@ class TsAboutDialog : Gtk.AboutDialog {
         logo_icon_name = "com.github.rajsolai.textsnatcher" ;
 
         program_name = "TextSnatcher" ;
-        comments = "Snatch Text with a Drag" ;
+        comments = "Snatch text with a drag" ;
         copyright = null ;
         version = "2.0" ;
 
@@ -18,7 +18,7 @@ class TsAboutDialog : Gtk.AboutDialog {
         wrap_license = true ;
 
         website = "https://github.com/RajSolai/TextSnatcher" ;
-        website_label = "Star TextSnatcher on Github !" ;
+        website_label = "Star TextSnatcher on Github!" ;
 
         response.connect ((response_id) => {
             if (response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT) {
