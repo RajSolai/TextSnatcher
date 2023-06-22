@@ -74,7 +74,25 @@ public class Application : Gtk.Application {
     }
 
     public static int main (string[] args) {
+        var tesseract_trigger = new TesseractTrigger ();
+        bool takeScreenshot = processArguments (args);
         var app = new Application ();
-        return app.run (args);
+        if (!takeScreenshot) {
+            // Run the UI
+            return app.run ();
+        }
+        // Run the screenshot
+        tesseract_trigger.perform_operation (null,'screenshot');
+        return 0;
+    }
+
+    private static bool processArguments (string[] args) {
+        bool takeScreenshot = false;
+        foreach (string arg in args) {
+            if (arg == "--screenshot") {
+                takeScreenshot = true;
+            }
+        }
+        return takeScreenshot;
     }
 }
