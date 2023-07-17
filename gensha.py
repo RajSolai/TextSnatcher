@@ -1,6 +1,6 @@
 import subprocess
 
-langs = ['tam','eng','hin','jpn','rus','fra','tha','ara','chi_sim','spa', 'ind']
+langs = ['tam','eng','hin','jpn','rus','fra','tha','ara','chi_sim','spa','ind', 'ita']
 
 for lang in langs :
     file_url = 'https://github.com/tesseract-ocr/tessdata_best/raw/main/'+lang+'.traineddata'
