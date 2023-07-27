@@ -1,7 +1,7 @@
 app-id: com.github.rajsolai.textsnatcher
 
 runtime: org.gnome.Platform
-runtime-version: "41"
+runtime-version: "44"
 base: io.elementary.BaseApp
 base-version: "juno-21.08"
 sdk: org.gnome.Sdk
