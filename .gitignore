@@ -1,5 +1,6 @@
 /builddir
 /export
+/build
 /repo
 .travis.yml
 /.flatpak-builder
