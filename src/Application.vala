@@ -82,7 +82,7 @@ public class Application : Gtk.Application {
             return app.run ();
         }
         // Run the screenshot
-        tesseract_trigger.perform_operation (null,'screenshot');
+        tesseract_trigger.take_plain_screenshot ();
         return 0;
     }
 

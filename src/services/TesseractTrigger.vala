@@ -75,10 +75,30 @@ class TesseractTrigger : Object {
         }
     }
 
+    void read_image_and_return (string file_path) {
+        string text_output = "";
+        var lang_service = new LanguageService () ;
+        string lang = lang_service.get_pref_language () ;
+        try {
+            string tess_command = "tesseract " + file_path + " " + out_path + @" -l $lang" ;
+            Process.spawn_command_line_sync (tess_command, out res, out err, out stat) ;
+            if (stat == 0) {
+                FileUtils.get_contents (out_path + ".txt", out text_output) ;
+                //  clipboard.set_text (text_output);
+                stdout.printf ("OUTPUT : %s",text_output);
+            } else {
+                stdout.printf ("Error is: %s, status is: %s\n", err, stat.to_string ());
+            }
+        } catch (Error e) {
+            critical (e.message) ;
+        }
+    }
+
     void copy_to_clipboard () {
         try {
             string text_output ;
             FileUtils.get_contents (out_path + ".txt", out text_output) ;
+            //  OpenAI
             if (text_output.length > 0) {
                 clipboard.set_text (text_output);
                 status_label.label = "Checkout Clipboard :)";
@@ -113,6 +133,26 @@ class TesseractTrigger : Object {
                 ) ;
             }
         }
+    }
+
+    public async void take_plain_screenshot () {
+        //  string session = Environment.get_variable ("XDG_SESSION_TYPE");
+        try{
+            Process.spawn_command_line_sync ("scrot -s -o " + scrot_path) ;
+            read_image_and_return (scrot_path) ;
+        }catch (Error e) {
+            critical (e.message);
+        }
+
+        //  if (session == "x11") {
+        //  } else {
+        //      portal.take_screenshot.begin (
+        //          null,
+        //          Xdp.ScreenshotFlags.INTERACTIVE,
+        //          null,
+        //          save_shot
+        //      ) ;
+        //  }
     }
 
     void clipboard_callback (Gdk.Clipboard _, Gdk.Pixbuf pixbuf) {
