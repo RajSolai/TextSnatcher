@@ -31,7 +31,6 @@ class HomeScreen : Gtk.Box {
         title_label.add_css_class ("h2");
 
         start_button.clicked.connect (() => {
-            string arg = Environment.get_variable ("XDG_SESSION_TYPE");
             goto_select_screen ();
         });
 
