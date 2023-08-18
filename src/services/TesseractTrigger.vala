@@ -135,7 +135,7 @@ class TesseractTrigger : Object {
         }
     }
 
-    public async void take_plain_screenshot () {
+    public void take_plain_screenshot () {
         //  string session = Environment.get_variable ("XDG_SESSION_TYPE");
         try{
             Process.spawn_command_line_sync ("scrot -s -o " + scrot_path) ;
@@ -155,23 +155,23 @@ class TesseractTrigger : Object {
         //  }
     }
 
-    void clipboard_callback (Gdk.Clipboard _, Gdk.Pixbuf pixbuf) {
-        try {
+    //  void clipboard_callback (Gdk.Clipboard _, Gdk.Pixbuf pixbuf) {
+    //      try {
 
-            File file = File.new_for_path (Path.build_filename (scrot_path)) ;
-            if (file.query_exists (null)) {
-                file.delete (null) ;
-            }
-            DataOutputStream fos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION)) ;
-            pixbuf.save_to_stream_async.begin (fos, "png", null, () => {
-                read_image.begin (scrot_path, (obj, res) => {
-                    print ("Reading File\n");
-                }) ;
-            }) ;
-        } catch (Error err) {
-            critical (err.message) ;
-        }
-    }
+    //          File file = File.new_for_path (Path.build_filename (scrot_path)) ;
+    //          if (file.query_exists (null)) {
+    //              file.delete (null) ;
+    //          }
+    //          DataOutputStream fos = new DataOutputStream (file.create (FileCreateFlags.REPLACE_DESTINATION)) ;
+    //          pixbuf.save_to_stream_async.begin (fos, "png", null, () => {
+    //              read_image.begin (scrot_path, (obj, res) => {
+    //                  print ("Reading File\n");
+    //              }) ;
+    //          }) ;
+    //      } catch (Error err) {
+    //          critical (err.message) ;
+    //      }
+    //  }
 
     public void save_shot (Object? obj, AsyncResult res) {
         string uri ;
