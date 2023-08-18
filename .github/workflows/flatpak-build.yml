@@ -32,7 +32,7 @@ jobs:
         run-tests: true
 
         # These lines specify the location of the elementary Runtime and Sdk
-        # repository-name: appcenter
-        # repository-url: https://flatpak.elementary.io/repo.flatpakrepo
-        # cache-key: "flatpak-builder-${{ github.sha }}"
+        repository-name: appcenter
+        repository-url: https://flatpak.elementary.io/repo.flatpakrepo
+        cache-key: "flatpak-builder-${{ github.sha }}"
         
