@@ -19,7 +19,7 @@ public class LanguageButton : Gtk.MenuButton {
         var tur = new Gtk.ModelButton () ;
         var deu = new Gtk.ModelButton () ;
         var ind = new Gtk.ModelButton () ;
-        vat por = new Gtk.ModelButton () ;
+        var por = new Gtk.ModelButton () ;
 
         deu.text = "German" ;
         nld.text = "Dutch" ;
