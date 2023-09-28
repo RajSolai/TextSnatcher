@@ -51,6 +51,10 @@ sources:
     url: https://github.com/tesseract-ocr/tessdata_best/raw/main/ind.traineddata
     sha256: 1f6596041ffb4cd5094e5f98764db43cfde04edb8f02b988f90ebc1353ac73b8
     dest: traineddata
+  - type: file
+    url: https://github.com/tesseract-ocr/tessdata_best/raw/main/por.traineddata
+    sha256: 711de9dbb8052067bd42f16b9119967f30bada80d57e2ef24f65d09f531adb04
+    dest: traineddata
 
 post-install:
   - install -p -D -m 0644 "traineddata"/eng.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
@@ -64,6 +68,7 @@ post-install:
   - install -p -D -m 0644 "traineddata"/nld.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/tur.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
   - install -p -D -m 0644 "traineddata"/ind.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
+  - install -p -D -m 0644 "traineddata"/por.traineddata -t "${FLATPAK_DEST}/share/tessdata/";
 
 
 modules:
