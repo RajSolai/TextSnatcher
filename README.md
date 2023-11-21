@@ -58,7 +58,7 @@ Ensure you have these dependencies installed
 -   scrot
 -   tesseract-ocr
 -   tesseract language data
-    [arch repos](https://archlinux.org/packages/community/x86_64/tesseract)
+    [arch repos](https://archlinux.org/packages/extra/x86_64/tesseract)
     [debian repos](https://packages.debian.org/search?keywords=tesseract-ocr)
 
 ### Buildtime Dependency
