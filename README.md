@@ -84,6 +84,13 @@ cd build
 sudo ninja install && com.github.rajsolai.textsnatcher
 ```
 
+### Install on Archlinux
+
+Using an AUR helper such as `yay`:
+```
+yay -S textsnatcher
+```
+
 ## Inspirations
 
 -   ReadMe: https://github.com/alainm23/planner
