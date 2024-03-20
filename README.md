@@ -1,3 +1,5 @@
+<h1>Thanks for all the Support shown by Stars, Issues and PRs 💌 ! Currently I'm Saving money for my Linux PC, Soon (next month) the project will be back with updates and fixes</h1>
+
 [![Vala Programming language](https://img.shields.io/badge/Made%20With-Vala%20-A56DE2)](https://wiki.gnome.org/Projects/Vala)
 ![Flatpak Build workflow](https://github.com/RajSolai/TextSnatcher/actions/workflows/flatpak-build.yml/badge.svg)
 
