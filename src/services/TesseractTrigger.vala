@@ -17,7 +17,7 @@ class TesseractTrigger : Object {
     public void accept_files_fromchooser () {
         portal.open_file.begin (
             null,
-            "Select an Image to perform OCR !",
+            "Select an image to perform OCR !",
             null,
             null,
             null,
@@ -54,7 +54,7 @@ class TesseractTrigger : Object {
     async void read_image (string file_path) {
         var lang_service = new LanguageService () ;
         string lang = lang_service.get_pref_language () ;
-        label.label = "Reading Image" ;
+        label.label = "Reading image" ;
         Idle.add (read_image.callback) ;
         yield ;
         try {
@@ -64,12 +64,12 @@ class TesseractTrigger : Object {
                 copy_to_clipboard () ;
             } else {
                 print ("Error is " + err + " status is " + stat.to_string ()) ;
-                label.label = "Error Reading Image" ;
+                label.label = "Error reading image" ;
             }
         } catch (Error e) {
             critical (e.message) ;
             if (e.code == 8) {
-                label.label = "Dependencies Not Found" ;
+                label.label = "Dependencies not found" ;
             }
         }
     }
@@ -80,9 +80,9 @@ class TesseractTrigger : Object {
             FileUtils.get_contents (out_path + ".txt", out text_output) ;
             if (text_output.length > 0) {
                 clipboard.set_text (text_output, text_output.length) ;
-                label.label = "Checkout Clipboard :)" ;
+                label.label = "Check out the clipboard :)" ;
             } else {
-                label.label = "Error Reading Image" ;
+                label.label = "Error reading image" ;
             }
         } catch (Error e) {
             print (e.message) ;
@@ -98,7 +98,7 @@ class TesseractTrigger : Object {
                 clipboard.request_image (clipboard_callback) ;
             } else {
                 print ("no image found in clipboard") ;
-                label.label = "No Image found in Clipboard" ;
+                label.label = "No image found in clipboard" ;
             }
         } else {
             if (session == "x11") {
@@ -138,7 +138,7 @@ class TesseractTrigger : Object {
             uri = portal.take_screenshot.end (res) ;
             string path = GLib.Filename.from_uri (uri, null) ;
             read_image.begin (path, (obj, res) => {
-                print ("Taking Screenshot") ;
+                print ("Taking screenshot") ;
             }) ;
         } catch (Error e) {
             critical (e.message) ;

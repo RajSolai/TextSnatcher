@@ -1,7 +1,7 @@
 class SelectPictureDialog : Hdy.Window {
     public SelectPictureDialog (Gtk.Label title_label) {
         var dialog_handle = new Hdy.WindowHandle () ;
-        var pic_dialog_title = new Gtk.Label ("Where can I find the Image ?") ;
+        var pic_dialog_title = new Gtk.Label ("Where can I find the image ?") ;
         var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10) ;
         var cancel_btn = new Gtk.Button.with_label ("Cancel") ;
         var take_screenshot_btn = new Gtk.Button.with_label ("Take Screenshot") ;
